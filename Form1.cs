@@ -55,6 +55,7 @@ namespace OxygenCalculator
                     {
                         worker = workers[i];
                         break;
+
                     }
                 }
             }
