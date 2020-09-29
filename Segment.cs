@@ -13,30 +13,36 @@ namespace OxygenCalculator
         private int lenght;
         private double entrySpeed;
         private double exitSpeed;
+        private double entryOxygen;
+        private double exitOxygen;
         private double height;
         private int startPoint;
         private int wetFloor;
         private int obstacles;
 
 
-        public Segment(int id, string name, int lenght, double entrySpeed, double exitSpeed, double height, int startPoint, int wetFloor, int obstacles)
+        public Segment(int id, string name, int lenght, double entrySpeed, double exitSpeed, double entryOxygen, double exitOxygen, double height, int startPoint, int wetFloor, int obstacles)
         {
             this.id = id;
             this.lenght = lenght;
             this.name = name;
             this.entrySpeed = entrySpeed;
             this.exitSpeed = exitSpeed;
+            this.entryOxygen = entryOxygen;
+            this.exitOxygen = exitOxygen;
             this.height = height;
             this.startPoint = startPoint;
             this.wetFloor = wetFloor;
             this.obstacles = obstacles;
         }
-        public Segment(string name, int lenght, double entrySpeed, double exitSpeed, double height, int startPoint, int wetFloor, int obstacles)
+        public Segment(string name, int lenght, double entrySpeed, double exitSpeed, double entryOxygen, double exitOxygen, double height, int startPoint, int wetFloor, int obstacles)
         {
             this.lenght = lenght;
             this.name = name;
             this.entrySpeed = entrySpeed;
             this.exitSpeed = exitSpeed;
+            this.entryOxygen = entryOxygen;
+            this.exitOxygen = exitOxygen;
             this.height = height;
             this.startPoint = startPoint;
             this.wetFloor = wetFloor;
@@ -63,9 +69,18 @@ namespace OxygenCalculator
             return this.entrySpeed;
         }
 
-        public double getExitSpped()
+        public double getExitSpeed()
         {
             return this.exitSpeed;
+        }
+        public double getEntryOxygen()
+        {
+            return this.entryOxygen;
+        }
+
+        public double getExitOxygen()
+        {
+            return this.exitOxygen;
         }
 
         public double getHeight()

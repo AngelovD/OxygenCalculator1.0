@@ -294,7 +294,7 @@ namespace OxygenCalculator
                 MySqlDataReader myReader = commandDatabaseSegment.ExecuteReader();
                 while (myReader.Read())
                 {
-                    segments.Add(new Segment(myReader.GetInt16(0), myReader.GetString(1),myReader.GetInt16(2), myReader.GetFloat(3), myReader.GetFloat(4), myReader.GetFloat(5), myReader.GetInt16(6), myReader.GetInt16(7), myReader.GetInt16(8)));
+                    segments.Add(new Segment(myReader.GetInt16(0), myReader.GetString(1),myReader.GetInt16(2), myReader.GetFloat(3), myReader.GetFloat(4), myReader.GetFloat(5), myReader.GetFloat(6), myReader.GetFloat(7), myReader.GetInt16(8), myReader.GetInt16(9), myReader.GetInt16(10)));
                     SegmentListBox.Items.Add(myReader.GetInt16(0) + " - " + myReader.GetString(1));
                 }
                 databaseConnection.Close();
