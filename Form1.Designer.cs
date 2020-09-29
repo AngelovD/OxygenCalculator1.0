@@ -250,9 +250,9 @@
             // 
             this.WorkerListBox.FormattingEnabled = true;
             this.WorkerListBox.ItemHeight = 20;
-            this.WorkerListBox.Location = new System.Drawing.Point(307, 80);
+            this.WorkerListBox.Location = new System.Drawing.Point(275, 80);
             this.WorkerListBox.Name = "WorkerListBox";
-            this.WorkerListBox.Size = new System.Drawing.Size(249, 384);
+            this.WorkerListBox.Size = new System.Drawing.Size(309, 384);
             this.WorkerListBox.TabIndex = 18;
             // 
             // SegmentListBox

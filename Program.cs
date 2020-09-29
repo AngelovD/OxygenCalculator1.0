@@ -64,6 +64,8 @@ namespace OxygenCalculator
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                DataBaseForm dataBaseForm = new DataBaseForm();
+                dataBaseForm.Show();
             }
         }
     }

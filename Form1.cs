@@ -18,7 +18,8 @@ namespace OxygenCalculator
 
         List<Worker> workers;
         List<Segment> segments;
-        List<Apparatus> apparatuses;
+        Dictionary<int,Apparatus> apparatuses;
+        
         Worker worker;
         public Form1()
         {
@@ -26,7 +27,7 @@ namespace OxygenCalculator
             ChooseWorkerLabel.Hide();
             workers = new List<Worker>();
             segments = new List<Segment>();
-            apparatuses = new List<Apparatus>();
+            apparatuses = new Dictionary<int, Apparatus>();
             FillLists();
         }
 
@@ -78,6 +79,7 @@ namespace OxygenCalculator
             {
                 ChooseWorkerLabel.Show();
                 Console.WriteLine(ex.Message);
+                WorkerListBox.Items.Add(ex.Message + " At update");
             }
         }
 
@@ -85,10 +87,10 @@ namespace OxygenCalculator
         {
             string[] workerID = WorkerListBox.SelectedItem.ToString().Split(' ');
             
-            int id;
             try
             {
-                id = Convert.ToInt32(workerID[0]);
+                int id = Convert.ToInt32(workerID[0]);
+                workers.Clear();
                 string queryText = "DELETE FROM `workers` WHERE id=" + id;
                 MySqlCommand commandDatabase = new MySqlCommand(queryText, databaseConnection);
                 commandDatabase.CommandTimeout = 60;
@@ -96,7 +98,7 @@ namespace OxygenCalculator
                 commandDatabase.ExecuteNonQuery();
                 databaseConnection.Close();
             }catch(Exception ex){
-                WorkerListBox.Items.Add(ex.Message);
+                WorkerListBox.Items.Add(ex.Message + " At delete");
             }
             FillLists();
 
@@ -131,7 +133,24 @@ namespace OxygenCalculator
 
         private void DeleteSegmentB_Click(object sender, EventArgs e)
         {
+            string[] segmentID = SegmentListBox.SelectedItem.ToString().Split(' ');
 
+            try
+            {
+                int id = Convert.ToInt32(segmentID[0]);
+                segments.Clear();
+                string queryText = "DELETE FROM `segments` WHERE id=" + id;
+                MySqlCommand commandDatabase = new MySqlCommand(queryText, databaseConnection);
+                commandDatabase.CommandTimeout = 60;
+                databaseConnection.Open();
+                commandDatabase.ExecuteNonQuery();
+                databaseConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                SegmentListBox.Items.Add(ex.Message + " At delete");
+            }
+            FillLists();
         }
 
         private void AddLuggageB_Click(object sender, EventArgs e)
@@ -161,20 +180,94 @@ namespace OxygenCalculator
 
         private void CalculateB_Click(object sender, EventArgs e)
         {
+            int lenght = 0;
+            double tireA = 1;
+            double timeIn = 0;
+            double timeOut = 0;
+            double time = 0;
+            double oxygenIn = 0;
+            double oxygenOut = 0;
             try
             {
                 ChooseWorkerLabel.Hide();
+                Apparatus apparatus;
+                apparatuses.TryGetValue(worker.getApparatus(), out apparatus);
+
                 double speed = worker.getSpeed();
-                int lenght = 0;
-                double time;
+                double tireRate = worker.getTireRate();
+                double oxygenC = worker.getOxygenConsumption();
+
                 for (int i = 0; i < segments.Count; i++)
                 {
-                    lenght += segments[i].getLenght() * 2;
+                    lenght += segments[i].getLenght();
+                    int segmentTireCount = segments[i].getLenght() / 100;
+                    if (segments[i].getLenght() % 100 > 50)
+                    {
+                        segmentTireCount++;
+                    }
+                    while (segmentTireCount >= 0)
+                    {
+                        double oxygenConsumptionIn = oxygenC * segments[i].getEntryOxygen() * tireA;
+                        double speedIn = speed * segments[i].getEntrySpeed() * tireA;
+                        if (tireA < 0.4)
+                        {
+                            timeIn += 15;
+                            time += 15;
+                            oxygenIn += 15 * oxygenC;
+                            tireA += 0.3;
+                        }
+                        timeIn += 100 / speedIn;
+                        time += 100 / speedIn;
+                        oxygenIn += (100 / speedIn) * oxygenConsumptionIn;
+                        tireA -= tireRate;
+                        segmentTireCount--;
+                    }
                 }
-                time = lenght / speed;
-                TimeForEntryB.Text += " " + time / 2;
-                TimeForExitB.Text += " " + time / 2;
-                TimeForPathB.Text += " " + Math.Pow(time,2);
+                for (int i = 0; i < segments.Count; i++)
+                {
+                    int segmentTireCount = segments[i].getLenght() / 100;
+                    if (segments[i].getLenght() % 100 > 50)
+                    {
+                        segmentTireCount++;
+                    }
+                    while (segmentTireCount >= 0)
+                    {
+                        double oxygenConsumptionOut = oxygenC * segments[i].getExitOxygen() * tireA;
+                        double speedOut = speed * segments[i].getExitSpeed() * tireA;
+                        if (tireA < 0.4)
+                        {
+                            timeOut += 15;
+                            time += 15;
+                            oxygenOut += 15 * oxygenC;
+                            tireA += 0.3;
+                        }
+                        timeOut += 100 / speedOut;
+                        time += 100 / speedOut;
+                        oxygenOut += (100 / speedOut) * oxygenConsumptionOut;
+                        tireA -= tireRate;
+                        segmentTireCount--;
+                    }
+                }
+                double oxygenAmmount = (apparatus.getVolume() * apparatus.getPressure() * 10);
+                double oxygenLeft = oxygenAmmount - (oxygenIn + oxygenOut);
+                TimeForEntryB.Text += " " + Math.Round(timeIn, 3, MidpointRounding.AwayFromZero).ToString() + " min";
+                TimeForExitB.Text += " " + Math.Round(timeOut, 3, MidpointRounding.AwayFromZero).ToString() + " min";
+                TimeForPathB.Text += " " + Math.Round(time, 3, MidpointRounding.AwayFromZero).ToString() + " min";
+                PathLengthB.Text += " " + lenght + " m";
+                OxygenForEntryB.Text += " " + Math.Round(oxygenIn, 3, MidpointRounding.AwayFromZero).ToString() + " l";
+                OxygenOnEntryB.Text += " " + Math.Round(oxygenAmmount, 3, MidpointRounding.AwayFromZero).ToString() + " l";
+                OxygenForExitB.Text += " " + Math.Round(oxygenOut, 3, MidpointRounding.AwayFromZero).ToString() + " l";
+                
+                if (oxygenLeft > 0)
+                {
+                    OxygenOnExitB.Text += " " + Math.Round(oxygenLeft, 3, MidpointRounding.AwayFromZero).ToString() + " l";
+                    RemainingTimeB.Text += " " + Math.Round(oxygenLeft/worker.getOxygenConsumption(), 3, MidpointRounding.AwayFromZero).ToString() + " min";
+                }
+                else
+                {
+                    OxygenOnExitB.Text = " Не достатъчен кислород";
+                    RemainingTimeB.Text = " Не достатъчен кислород";
+                }
 
             }catch(Exception ex)
             {
@@ -250,6 +343,11 @@ namespace OxygenCalculator
 
         public void FillLists()
         {
+
+            workers = new List<Worker>();
+            segments = new List<Segment>();
+            apparatuses = new Dictionary<int, Apparatus>();
+
             //Wroker query
             string queryTextWorker = "SELECT * FROM Workers";
             MySqlCommand commandDatabaseWorker = new MySqlCommand(queryTextWorker, databaseConnection);
@@ -284,7 +382,7 @@ namespace OxygenCalculator
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                WorkerListBox.Items.Add(e.Message);
+                WorkerListBox.Items.Add(" At Select W");
             }
 
             //Segment connection and fill
@@ -302,7 +400,7 @@ namespace OxygenCalculator
             catch(Exception e)
             {
                 Console.WriteLine(e.Message);
-                SegmentListBox.Items.Add(e.Message);
+                SegmentListBox.Items.Add("At Select S");
             }
 
             //Apparatus connection and fill
@@ -312,17 +410,18 @@ namespace OxygenCalculator
                 MySqlDataReader myReader = commandDatabaseApparatus.ExecuteReader();
                 while (myReader.Read())
                 {
-                    apparatuses.Add(new Apparatus(myReader.GetInt16(0), myReader.GetString(1), myReader.GetString(2), myReader.GetFloat(3), myReader.GetFloat(4), myReader.GetFloat(5), myReader.GetInt16(6), myReader.GetFloat(7)));
+                    apparatuses.Add(myReader.GetInt16(0),new Apparatus(myReader.GetInt16(0), myReader.GetString(1), myReader.GetString(2), myReader.GetFloat(3), myReader.GetFloat(4), myReader.GetFloat(5), myReader.GetInt16(6), myReader.GetFloat(7)));
                 }
                 databaseConnection.Close();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                WorkerListBox.Items.Add(e.Message);
+                Console.WriteLine(e.Message + "At select A");
+                SegmentListBox.Items.Add("At Select A");
             }
 
         }
+
 
     }
 }
