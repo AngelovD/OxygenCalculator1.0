@@ -180,6 +180,15 @@ namespace OxygenCalculator
 
         private void CalculateB_Click(object sender, EventArgs e)
         {
+            TimeForEntryB.Text = "Време за влизане:";
+            TimeForExitB.Text = "Време за излизане:";
+            TimeForPathB.Text = "Време за изминаване на пътя:";
+            PathLengthB.Text = "Дължина на трасето:";
+            OxygenForEntryB.Text = "Кислород за влизане:";
+            OxygenOnEntryB.Text = "Наличен кислород при влизане:";
+            OxygenForExitB.Text = "Кислород за излизане:";
+            OxygenOnExitB.Text = "Наличен кислород при излизане:";
+            RemainingTimeB.Text = "Оставащо време при умерена работа:";
             int lenght = 0;
             double tireA = 1;
             double timeIn = 0;
