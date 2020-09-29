@@ -124,5 +124,9 @@ namespace OxygenCalculator
                 return segment;
         }
 
+        private void SegmentForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

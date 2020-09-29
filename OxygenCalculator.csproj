@@ -54,6 +54,12 @@
     <Compile Include="ApparatusForm.Designer.cs">
       <DependentUpon>ApparatusForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataBaseForm.Designer.cs">
+      <DependentUpon>DataBaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
