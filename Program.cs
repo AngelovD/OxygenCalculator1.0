@@ -9,20 +9,33 @@ namespace OxygenCalculator
 {
     static class Program
     {
+
+        private static bool works = true;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            
             //Create Database if it doesn't exist
             CreateDB();
 
             //Create Tables if they don't exist
             CreateTables();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            if (works)
+            {
+                Application.Run(new LanguageForm());
+            }
+            else
+            {
+                Application.Run(new DataBaseForm());
+            }
+
         }
         private static void CreateDB()
         {
@@ -41,6 +54,7 @@ namespace OxygenCalculator
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                works = false;
             }
 
         }
@@ -60,12 +74,12 @@ namespace OxygenCalculator
                 commandDatabase.ExecuteNonQuery();
                 databaseConnection.Close();
 
+
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                DataBaseForm dataBaseForm = new DataBaseForm();
-                dataBaseForm.Show();
+                works = false;
             }
         }
     }

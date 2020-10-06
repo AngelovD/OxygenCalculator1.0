@@ -63,43 +63,47 @@
             this.ChangeValuesB = new System.Windows.Forms.Button();
             this.ChoosePathB = new System.Windows.Forms.Button();
             this.ChooseWorkerLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(71, 33);
+            this.label1.Location = new System.Drawing.Point(68, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Спасител";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(361, 33);
+            this.label2.Location = new System.Drawing.Point(358, 123);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Спасители:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(697, 33);
+            this.label3.Location = new System.Drawing.Point(694, 123);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Сегмент";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(986, 33);
+            this.label4.Location = new System.Drawing.Point(983, 123);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 20);
             this.label4.TabIndex = 3;
@@ -108,7 +112,7 @@
             // 
             // CreateWorkerB
             // 
-            this.CreateWorkerB.Location = new System.Drawing.Point(34, 80);
+            this.CreateWorkerB.Location = new System.Drawing.Point(31, 170);
             this.CreateWorkerB.Name = "CreateWorkerB";
             this.CreateWorkerB.Size = new System.Drawing.Size(171, 28);
             this.CreateWorkerB.TabIndex = 4;
@@ -118,7 +122,7 @@
             // 
             // ChooseWorkerB
             // 
-            this.ChooseWorkerB.Location = new System.Drawing.Point(34, 131);
+            this.ChooseWorkerB.Location = new System.Drawing.Point(31, 221);
             this.ChooseWorkerB.Name = "ChooseWorkerB";
             this.ChooseWorkerB.Size = new System.Drawing.Size(171, 28);
             this.ChooseWorkerB.TabIndex = 5;
@@ -128,7 +132,7 @@
             // 
             // UpdateWorkerB
             // 
-            this.UpdateWorkerB.Location = new System.Drawing.Point(34, 188);
+            this.UpdateWorkerB.Location = new System.Drawing.Point(31, 278);
             this.UpdateWorkerB.Name = "UpdateWorkerB";
             this.UpdateWorkerB.Size = new System.Drawing.Size(171, 28);
             this.UpdateWorkerB.TabIndex = 6;
@@ -138,7 +142,7 @@
             // 
             // DeleteWorkerB
             // 
-            this.DeleteWorkerB.Location = new System.Drawing.Point(34, 244);
+            this.DeleteWorkerB.Location = new System.Drawing.Point(31, 334);
             this.DeleteWorkerB.Name = "DeleteWorkerB";
             this.DeleteWorkerB.Size = new System.Drawing.Size(171, 28);
             this.DeleteWorkerB.TabIndex = 7;
@@ -148,7 +152,7 @@
             // 
             // CreateApparatusB
             // 
-            this.CreateApparatusB.Location = new System.Drawing.Point(34, 304);
+            this.CreateApparatusB.Location = new System.Drawing.Point(31, 394);
             this.CreateApparatusB.Name = "CreateApparatusB";
             this.CreateApparatusB.Size = new System.Drawing.Size(171, 28);
             this.CreateApparatusB.TabIndex = 8;
@@ -158,7 +162,7 @@
             // 
             // UpdateApparatusB
             // 
-            this.UpdateApparatusB.Location = new System.Drawing.Point(34, 365);
+            this.UpdateApparatusB.Location = new System.Drawing.Point(31, 455);
             this.UpdateApparatusB.Name = "UpdateApparatusB";
             this.UpdateApparatusB.Size = new System.Drawing.Size(171, 28);
             this.UpdateApparatusB.TabIndex = 9;
@@ -168,7 +172,7 @@
             // 
             // DeleteApparatusB
             // 
-            this.DeleteApparatusB.Location = new System.Drawing.Point(34, 430);
+            this.DeleteApparatusB.Location = new System.Drawing.Point(31, 520);
             this.DeleteApparatusB.Name = "DeleteApparatusB";
             this.DeleteApparatusB.Size = new System.Drawing.Size(171, 28);
             this.DeleteApparatusB.TabIndex = 10;
@@ -178,7 +182,7 @@
             // 
             // DeleteBreakB
             // 
-            this.DeleteBreakB.Location = new System.Drawing.Point(650, 430);
+            this.DeleteBreakB.Location = new System.Drawing.Point(647, 520);
             this.DeleteBreakB.Name = "DeleteBreakB";
             this.DeleteBreakB.Size = new System.Drawing.Size(168, 28);
             this.DeleteBreakB.TabIndex = 17;
@@ -188,7 +192,7 @@
             // 
             // AddBreakB
             // 
-            this.AddBreakB.Location = new System.Drawing.Point(650, 365);
+            this.AddBreakB.Location = new System.Drawing.Point(647, 455);
             this.AddBreakB.Name = "AddBreakB";
             this.AddBreakB.Size = new System.Drawing.Size(168, 28);
             this.AddBreakB.TabIndex = 16;
@@ -198,7 +202,7 @@
             // 
             // RemoveLuggageB
             // 
-            this.RemoveLuggageB.Location = new System.Drawing.Point(650, 304);
+            this.RemoveLuggageB.Location = new System.Drawing.Point(647, 394);
             this.RemoveLuggageB.Name = "RemoveLuggageB";
             this.RemoveLuggageB.Size = new System.Drawing.Size(168, 28);
             this.RemoveLuggageB.TabIndex = 15;
@@ -208,7 +212,7 @@
             // 
             // AddLuggageB
             // 
-            this.AddLuggageB.Location = new System.Drawing.Point(650, 244);
+            this.AddLuggageB.Location = new System.Drawing.Point(647, 334);
             this.AddLuggageB.Name = "AddLuggageB";
             this.AddLuggageB.Size = new System.Drawing.Size(168, 28);
             this.AddLuggageB.TabIndex = 14;
@@ -218,7 +222,7 @@
             // 
             // DeleteSegmentB
             // 
-            this.DeleteSegmentB.Location = new System.Drawing.Point(650, 188);
+            this.DeleteSegmentB.Location = new System.Drawing.Point(647, 278);
             this.DeleteSegmentB.Name = "DeleteSegmentB";
             this.DeleteSegmentB.Size = new System.Drawing.Size(168, 28);
             this.DeleteSegmentB.TabIndex = 13;
@@ -228,7 +232,7 @@
             // 
             // UpdateSegmentB
             // 
-            this.UpdateSegmentB.Location = new System.Drawing.Point(650, 131);
+            this.UpdateSegmentB.Location = new System.Drawing.Point(647, 221);
             this.UpdateSegmentB.Name = "UpdateSegmentB";
             this.UpdateSegmentB.Size = new System.Drawing.Size(168, 28);
             this.UpdateSegmentB.TabIndex = 12;
@@ -238,7 +242,7 @@
             // 
             // CreateSegmentB
             // 
-            this.CreateSegmentB.Location = new System.Drawing.Point(650, 80);
+            this.CreateSegmentB.Location = new System.Drawing.Point(647, 170);
             this.CreateSegmentB.Name = "CreateSegmentB";
             this.CreateSegmentB.Size = new System.Drawing.Size(168, 28);
             this.CreateSegmentB.TabIndex = 11;
@@ -250,23 +254,25 @@
             // 
             this.WorkerListBox.FormattingEnabled = true;
             this.WorkerListBox.ItemHeight = 20;
-            this.WorkerListBox.Location = new System.Drawing.Point(275, 80);
+            this.WorkerListBox.Location = new System.Drawing.Point(272, 170);
             this.WorkerListBox.Name = "WorkerListBox";
             this.WorkerListBox.Size = new System.Drawing.Size(309, 384);
             this.WorkerListBox.TabIndex = 18;
+            this.WorkerListBox.SelectedIndexChanged += new System.EventHandler(this.WorkerListBox_SelectedIndexChanged);
             // 
             // SegmentListBox
             // 
             this.SegmentListBox.FormattingEnabled = true;
             this.SegmentListBox.ItemHeight = 20;
-            this.SegmentListBox.Location = new System.Drawing.Point(915, 80);
+            this.SegmentListBox.Location = new System.Drawing.Point(912, 170);
             this.SegmentListBox.Name = "SegmentListBox";
             this.SegmentListBox.Size = new System.Drawing.Size(249, 384);
             this.SegmentListBox.TabIndex = 19;
+            this.SegmentListBox.SelectedIndexChanged += new System.EventHandler(this.SegmentListBox_SelectedIndexChanged);
             // 
             // CalculateB
             // 
-            this.CalculateB.Location = new System.Drawing.Point(636, 519);
+            this.CalculateB.Location = new System.Drawing.Point(633, 609);
             this.CalculateB.Name = "CalculateB";
             this.CalculateB.Size = new System.Drawing.Size(142, 28);
             this.CalculateB.TabIndex = 20;
@@ -276,7 +282,7 @@
             // 
             // OxygenForExitB
             // 
-            this.OxygenForExitB.Location = new System.Drawing.Point(53, 838);
+            this.OxygenForExitB.Location = new System.Drawing.Point(50, 928);
             this.OxygenForExitB.Name = "OxygenForExitB";
             this.OxygenForExitB.Size = new System.Drawing.Size(364, 28);
             this.OxygenForExitB.TabIndex = 25;
@@ -286,7 +292,7 @@
             // 
             // OxygenForEntryB
             // 
-            this.OxygenForEntryB.Location = new System.Drawing.Point(53, 773);
+            this.OxygenForEntryB.Location = new System.Drawing.Point(50, 863);
             this.OxygenForEntryB.Name = "OxygenForEntryB";
             this.OxygenForEntryB.Size = new System.Drawing.Size(364, 28);
             this.OxygenForEntryB.TabIndex = 24;
@@ -296,7 +302,7 @@
             // 
             // OxygenOnExitB
             // 
-            this.OxygenOnExitB.Location = new System.Drawing.Point(53, 712);
+            this.OxygenOnExitB.Location = new System.Drawing.Point(50, 802);
             this.OxygenOnExitB.Name = "OxygenOnExitB";
             this.OxygenOnExitB.Size = new System.Drawing.Size(364, 28);
             this.OxygenOnExitB.TabIndex = 23;
@@ -306,7 +312,7 @@
             // 
             // OxygenOnEntryB
             // 
-            this.OxygenOnEntryB.Location = new System.Drawing.Point(53, 652);
+            this.OxygenOnEntryB.Location = new System.Drawing.Point(50, 742);
             this.OxygenOnEntryB.Name = "OxygenOnEntryB";
             this.OxygenOnEntryB.Size = new System.Drawing.Size(364, 28);
             this.OxygenOnEntryB.TabIndex = 22;
@@ -316,7 +322,7 @@
             // 
             // AlternativePathsB
             // 
-            this.AlternativePathsB.Location = new System.Drawing.Point(53, 596);
+            this.AlternativePathsB.Location = new System.Drawing.Point(50, 686);
             this.AlternativePathsB.Name = "AlternativePathsB";
             this.AlternativePathsB.Size = new System.Drawing.Size(364, 28);
             this.AlternativePathsB.TabIndex = 21;
@@ -326,7 +332,7 @@
             // 
             // RemainingTimeB
             // 
-            this.RemainingTimeB.Location = new System.Drawing.Point(537, 838);
+            this.RemainingTimeB.Location = new System.Drawing.Point(534, 928);
             this.RemainingTimeB.Name = "RemainingTimeB";
             this.RemainingTimeB.Size = new System.Drawing.Size(396, 28);
             this.RemainingTimeB.TabIndex = 30;
@@ -336,7 +342,7 @@
             // 
             // TimeForPathB
             // 
-            this.TimeForPathB.Location = new System.Drawing.Point(537, 773);
+            this.TimeForPathB.Location = new System.Drawing.Point(534, 863);
             this.TimeForPathB.Name = "TimeForPathB";
             this.TimeForPathB.Size = new System.Drawing.Size(396, 28);
             this.TimeForPathB.TabIndex = 29;
@@ -346,7 +352,7 @@
             // 
             // TimeForExitB
             // 
-            this.TimeForExitB.Location = new System.Drawing.Point(537, 712);
+            this.TimeForExitB.Location = new System.Drawing.Point(534, 802);
             this.TimeForExitB.Name = "TimeForExitB";
             this.TimeForExitB.Size = new System.Drawing.Size(396, 28);
             this.TimeForExitB.TabIndex = 28;
@@ -356,7 +362,7 @@
             // 
             // TimeForEntryB
             // 
-            this.TimeForEntryB.Location = new System.Drawing.Point(537, 652);
+            this.TimeForEntryB.Location = new System.Drawing.Point(534, 742);
             this.TimeForEntryB.Name = "TimeForEntryB";
             this.TimeForEntryB.Size = new System.Drawing.Size(396, 28);
             this.TimeForEntryB.TabIndex = 27;
@@ -366,7 +372,7 @@
             // 
             // PathLengthB
             // 
-            this.PathLengthB.Location = new System.Drawing.Point(537, 596);
+            this.PathLengthB.Location = new System.Drawing.Point(534, 686);
             this.PathLengthB.Name = "PathLengthB";
             this.PathLengthB.Size = new System.Drawing.Size(396, 28);
             this.PathLengthB.TabIndex = 26;
@@ -376,7 +382,7 @@
             // 
             // SaveResultsB
             // 
-            this.SaveResultsB.Location = new System.Drawing.Point(1022, 625);
+            this.SaveResultsB.Location = new System.Drawing.Point(1019, 715);
             this.SaveResultsB.Name = "SaveResultsB";
             this.SaveResultsB.Size = new System.Drawing.Size(159, 28);
             this.SaveResultsB.TabIndex = 31;
@@ -386,7 +392,7 @@
             // 
             // ChangeValuesB
             // 
-            this.ChangeValuesB.Location = new System.Drawing.Point(1022, 712);
+            this.ChangeValuesB.Location = new System.Drawing.Point(1019, 802);
             this.ChangeValuesB.Name = "ChangeValuesB";
             this.ChangeValuesB.Size = new System.Drawing.Size(159, 53);
             this.ChangeValuesB.TabIndex = 32;
@@ -396,7 +402,7 @@
             // 
             // ChoosePathB
             // 
-            this.ChoosePathB.Location = new System.Drawing.Point(275, 519);
+            this.ChoosePathB.Location = new System.Drawing.Point(272, 609);
             this.ChoosePathB.Name = "ChoosePathB";
             this.ChoosePathB.Size = new System.Drawing.Size(142, 28);
             this.ChoosePathB.TabIndex = 33;
@@ -408,18 +414,30 @@
             // 
             this.ChooseWorkerLabel.AutoSize = true;
             this.ChooseWorkerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChooseWorkerLabel.Location = new System.Drawing.Point(932, 523);
+            this.ChooseWorkerLabel.Location = new System.Drawing.Point(929, 613);
             this.ChooseWorkerLabel.Name = "ChooseWorkerLabel";
             this.ChooseWorkerLabel.Size = new System.Drawing.Size(222, 20);
             this.ChooseWorkerLabel.TabIndex = 34;
             this.ChooseWorkerLabel.Text = "Моля изберете спасител";
+            this.ChooseWorkerLabel.Click += new System.EventHandler(this.ChooseWorkerLabel_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(473, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(313, 26);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "Изчисли Ресурси за Мисия";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1241, 891);
+            this.ClientSize = new System.Drawing.Size(1241, 969);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.ChooseWorkerLabel);
             this.Controls.Add(this.ChoosePathB);
             this.Controls.Add(this.ChangeValuesB);
@@ -459,6 +477,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -501,6 +520,7 @@
         private System.Windows.Forms.Button ChangeValuesB;
         private System.Windows.Forms.Button ChoosePathB;
         private System.Windows.Forms.Label ChooseWorkerLabel;
+        private System.Windows.Forms.Label label5;
     }
 }
 

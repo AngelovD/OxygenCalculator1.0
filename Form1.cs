@@ -16,12 +16,14 @@ namespace OxygenCalculator
         static string MySqlConnectionText = "datasource=127.0.0.1;port=3306;username=root;password=;database=OxygenCalculatorDB";
         static MySqlConnection databaseConnection = new MySqlConnection(MySqlConnectionText);
 
+        bool language;
+
         List<Worker> workers;
         List<Segment> segments;
         Dictionary<int,Apparatus> apparatuses;
         
         Worker worker;
-        public Form1()
+        public Form1(bool language)
         {
             InitializeComponent();
             ChooseWorkerLabel.Hide();
@@ -29,9 +31,87 @@ namespace OxygenCalculator
             segments = new List<Segment>();
             apparatuses = new Dictionary<int, Apparatus>();
             FillLists();
+            this.language = language;
+            FillLanguage();
         }
 
-
+        private void FillLanguage()
+        {
+            if (language)
+            {
+                TimeForEntryB.Text = "Време за влизане:";
+                TimeForExitB.Text = "Време за излизане:";
+                TimeForPathB.Text = "Време за изминаване на пътя:";
+                PathLengthB.Text = "Дължина на трасето:";
+                OxygenForEntryB.Text = "Кислород за влизане:";
+                OxygenOnEntryB.Text = "Наличен кислород при влизане:";
+                OxygenForExitB.Text = "Кислород за излизане:";
+                OxygenOnExitB.Text = "Наличен кислород при излизане:";
+                RemainingTimeB.Text = "Оставащо време при умерена работа:";
+                AlternativePathsB.Text = "Алтернативни трасета";
+                CreateWorkerB.Text = "Създай Спасител";
+                ChooseWorkerB.Text = "Избери Спасител";
+                UpdateWorkerB.Text = "Обнови Спасител";
+                DeleteWorkerB.Text = "Изтрий Спасител";
+                CreateApparatusB.Text = "Създай Апарат";
+                UpdateApparatusB.Text = "Обнови Апарат";
+                DeleteApparatusB.Text = "Изтрий Апарат";
+                CreateSegmentB.Text = "Създай Участък";
+                UpdateSegmentB.Text = "Обнови Участък";
+                DeleteSegmentB.Text = "Изтрий Участък";
+                AddLuggageB.Text = "Добави Товар";
+                RemoveLuggageB.Text = "Премахни Товар";
+                AddBreakB.Text = "Добави Почивка";
+                DeleteBreakB.Text = "Изтрий Почивка";
+                ChoosePathB.Text = "Избери Трасе";
+                CalculateB.Text = "Изчисли";
+                SaveResultsB.Text = "Запази Резултат";
+                ChangeValuesB.Text = "Промени Коефициенти";
+                ChooseWorkerLabel.Text = "Моля изберете спасител";
+                label1.Text = "Спасител";
+                label2.Text = "Спасители:";
+                label3.Text = "Сегмент";
+                label4.Text = "Сегменти";
+                label5.Text = "Изчисли Ресурси за Мисия";
+            }
+            else
+            {
+                TimeForEntryB.Text = "Time for entry:";
+                TimeForExitB.Text = "Time for exit:";
+                TimeForPathB.Text = "Time for path:";
+                PathLengthB.Text = "Path lenght:";
+                OxygenForEntryB.Text = "Oxygen for entry:";
+                OxygenOnEntryB.Text = "Oxygen on entry:";
+                OxygenForExitB.Text = "Oxygen for exit:";
+                OxygenOnExitB.Text = "Oxygen on exit:";
+                RemainingTimeB.Text = "Remaining time for work:";
+                AlternativePathsB.Text = "Alternative Paths";
+                CreateWorkerB.Text = "Create Worker";
+                ChooseWorkerB.Text = "Choose Worker";
+                UpdateWorkerB.Text = "Update Worker";
+                DeleteWorkerB.Text = "Delete Worker";
+                CreateApparatusB.Text = "Create Apparatus";
+                UpdateApparatusB.Text = "Update Apparatus";
+                DeleteApparatusB.Text = "Delete Apparatus";
+                CreateSegmentB.Text = "Create Segment";
+                UpdateSegmentB.Text = "Update Segment";
+                DeleteSegmentB.Text = "Delete Segment";
+                AddLuggageB.Text = "Add Luggage";
+                RemoveLuggageB.Text = "Remove Luggage";
+                AddBreakB.Text = "Add Break";
+                DeleteBreakB.Text = "Delete Break";
+                ChoosePathB.Text = "Choose Path";
+                CalculateB.Text = "Calculate";
+                SaveResultsB.Text = "Save Result";
+                ChangeValuesB.Text = "Change Constants";
+                ChooseWorkerLabel.Text = "Please choose a worker";
+                label1.Text = "Rescue Worker";
+                label2.Text = "Workers:";
+                label3.Text = "Segment";
+                label4.Text = "Segments:";
+                label5.Text = "Calculate Needed Resources for Mission";
+            }
+        }
 
 
         private void CreateWorkerB_Click(object sender, EventArgs e)
@@ -180,109 +260,8 @@ namespace OxygenCalculator
 
         private void CalculateB_Click(object sender, EventArgs e)
         {
-            TimeForEntryB.Text = "Време за влизане:";
-            TimeForExitB.Text = "Време за излизане:";
-            TimeForPathB.Text = "Време за изминаване на пътя:";
-            PathLengthB.Text = "Дължина на трасето:";
-            OxygenForEntryB.Text = "Кислород за влизане:";
-            OxygenOnEntryB.Text = "Наличен кислород при влизане:";
-            OxygenForExitB.Text = "Кислород за излизане:";
-            OxygenOnExitB.Text = "Наличен кислород при излизане:";
-            RemainingTimeB.Text = "Оставащо време при умерена работа:";
-            int lenght = 0;
-            double tireA = 1;
-            double timeIn = 0;
-            double timeOut = 0;
-            double time = 0;
-            double oxygenIn = 0;
-            double oxygenOut = 0;
-            try
-            {
-                ChooseWorkerLabel.Hide();
-                Apparatus apparatus;
-                apparatuses.TryGetValue(worker.getApparatus(), out apparatus);
-
-                double speed = worker.getSpeed();
-                double tireRate = worker.getTireRate();
-                double oxygenC = worker.getOxygenConsumption();
-
-                for (int i = 0; i < segments.Count; i++)
-                {
-                    lenght += segments[i].getLenght();
-                    int segmentTireCount = segments[i].getLenght() / 100;
-                    if (segments[i].getLenght() % 100 > 50)
-                    {
-                        segmentTireCount++;
-                    }
-                    while (segmentTireCount >= 0)
-                    {
-                        double oxygenConsumptionIn = oxygenC * segments[i].getEntryOxygen() * tireA;
-                        double speedIn = speed * segments[i].getEntrySpeed() * tireA;
-                        if (tireA < 0.4)
-                        {
-                            timeIn += 15;
-                            time += 15;
-                            oxygenIn += 15 * oxygenC;
-                            tireA += 0.3;
-                        }
-                        timeIn += 100 / speedIn;
-                        time += 100 / speedIn;
-                        oxygenIn += (100 / speedIn) * oxygenConsumptionIn;
-                        tireA -= tireRate;
-                        segmentTireCount--;
-                    }
-                }
-                for (int i = 0; i < segments.Count; i++)
-                {
-                    int segmentTireCount = segments[i].getLenght() / 100;
-                    if (segments[i].getLenght() % 100 > 50)
-                    {
-                        segmentTireCount++;
-                    }
-                    while (segmentTireCount >= 0)
-                    {
-                        double oxygenConsumptionOut = oxygenC * segments[i].getExitOxygen() * tireA;
-                        double speedOut = speed * segments[i].getExitSpeed() * tireA;
-                        if (tireA < 0.4)
-                        {
-                            timeOut += 15;
-                            time += 15;
-                            oxygenOut += 15 * oxygenC;
-                            tireA += 0.3;
-                        }
-                        timeOut += 100 / speedOut;
-                        time += 100 / speedOut;
-                        oxygenOut += (100 / speedOut) * oxygenConsumptionOut;
-                        tireA -= tireRate;
-                        segmentTireCount--;
-                    }
-                }
-                double oxygenAmmount = (apparatus.getVolume() * apparatus.getPressure() * 10);
-                double oxygenLeft = oxygenAmmount - (oxygenIn + oxygenOut);
-                TimeForEntryB.Text += " " + Math.Round(timeIn, 3, MidpointRounding.AwayFromZero).ToString() + " min";
-                TimeForExitB.Text += " " + Math.Round(timeOut, 3, MidpointRounding.AwayFromZero).ToString() + " min";
-                TimeForPathB.Text += " " + Math.Round(time, 3, MidpointRounding.AwayFromZero).ToString() + " min";
-                PathLengthB.Text += " " + lenght + " m";
-                OxygenForEntryB.Text += " " + Math.Round(oxygenIn, 3, MidpointRounding.AwayFromZero).ToString() + " l";
-                OxygenOnEntryB.Text += " " + Math.Round(oxygenAmmount, 3, MidpointRounding.AwayFromZero).ToString() + " l";
-                OxygenForExitB.Text += " " + Math.Round(oxygenOut, 3, MidpointRounding.AwayFromZero).ToString() + " l";
-                
-                if (oxygenLeft > 0)
-                {
-                    OxygenOnExitB.Text += " " + Math.Round(oxygenLeft, 3, MidpointRounding.AwayFromZero).ToString() + " l";
-                    RemainingTimeB.Text += " " + Math.Round(oxygenLeft/worker.getOxygenConsumption(), 3, MidpointRounding.AwayFromZero).ToString() + " min";
-                }
-                else
-                {
-                    OxygenOnExitB.Text = " Не достатъчен кислород";
-                    RemainingTimeB.Text = " Не достатъчен кислород";
-                }
-
-            }catch(Exception ex)
-            {
-                ChooseWorkerLabel.Show();
-                Console.WriteLine(ex.Message);
-            }
+            FillLanguage();
+           
         }
 
         private void AlternativePathsB_Click(object sender, EventArgs e)
@@ -431,6 +410,44 @@ namespace OxygenCalculator
 
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WorkerListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SegmentListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ChooseWorkerLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

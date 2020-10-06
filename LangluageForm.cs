@@ -10,22 +10,30 @@ using System.Windows.Forms;
 
 namespace OxygenCalculator
 {
-    public partial class DataBaseForm : Form
+    public partial class LanguageForm : Form
     {
-        public DataBaseForm()
+        public LanguageForm()
         {
             InitializeComponent();
         }
 
-        private void DataBaseForm_Load(object sender, EventArgs e)
+        private void BG_Click(object sender, EventArgs e)
         {
+            Form1 form1 = new Form1(true);
+            form1.Show();
+            this.Hide();
+        }
 
+        private void EN_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1(false);
+            form1.Show();
+            this.Hide();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
         }
-        
     }
 }
