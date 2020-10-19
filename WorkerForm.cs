@@ -140,6 +140,10 @@ namespace OxygenCalculator
             return worker;
         }
 
+
+
+       
+
         private void fillList()
         {
 
@@ -166,39 +170,6 @@ namespace OxygenCalculator
             if (!apparatuses.Any())
             {
                 ApparatusBox.Items.Add("Моля създайте апарат");
-            }
-        }
-
-        private void UpdateWorkerB_Click(object sender, EventArgs e)
-        {
-            if (checkWorker() != null)
-            {
-                worker = checkWorker();
-                string queryText = "UPDATE `workers` Set `Id`=" + worker.getID() + ", `Name`='" + worker.getName() + "',`Height`=" + worker.getHeight() + ",`Weight`=" + worker.getWeight() + ",`OxygenConsumption`=" + worker.getOxygenConsumption() + ",`Speed`=" + worker.getSpeed() + ",`TireRate`=" + worker.getTireRate() + ",`Apparatus`=" + worker.getApparatus() + " WHERE workers.id =" + worker.getID();
-                MySqlCommand commandDatabase = new MySqlCommand(queryText, databaseConnection);
-                commandDatabase.CommandTimeout = 60;
-                try
-                {
-                    databaseConnection.Open();
-                    commandDatabase.ExecuteNonQuery();
-                    databaseConnection.Close();
-                    NameBox.Text = "";
-                    HeightBox.Text = "";
-                    WeightBox.Text = "";
-                    OxygenBox.Text = "";
-                    SpeedBox.Text = "";
-                    TireBox.Text = "";
-                }
-                catch (Exception ex)
-                {
-                    ApparatusBox.Items.Add(ex.Message + "At update");
-                }
-
-                mainForm.FillLists();
-            }
-            else
-            {
-                ApparatusBox.Items.Add("Моля попълнете всички полета");
             }
         }
     }

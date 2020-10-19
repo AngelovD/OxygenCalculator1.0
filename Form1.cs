@@ -48,31 +48,26 @@ namespace OxygenCalculator
                 OxygenForExitB.Text = "Кислород за излизане:";
                 OxygenOnExitB.Text = "Наличен кислород при излизане:";
                 RemainingTimeB.Text = "Оставащо време при умерена работа:";
-                AlternativePathsB.Text = "Алтернативни трасета";
                 CreateWorkerB.Text = "Създай Спасител";
                 ChooseWorkerB.Text = "Избери Спасител";
-                UpdateWorkerB.Text = "Обнови Спасител";
                 DeleteWorkerB.Text = "Изтрий Спасител";
                 CreateApparatusB.Text = "Създай Апарат";
-                UpdateApparatusB.Text = "Обнови Апарат";
                 DeleteApparatusB.Text = "Изтрий Апарат";
                 CreateSegmentB.Text = "Създай Участък";
-                UpdateSegmentB.Text = "Обнови Участък";
                 DeleteSegmentB.Text = "Изтрий Участък";
                 AddLuggageB.Text = "Добави Товар";
                 RemoveLuggageB.Text = "Премахни Товар";
                 AddBreakB.Text = "Добави Почивка";
                 DeleteBreakB.Text = "Изтрий Почивка";
-                ChoosePathB.Text = "Избери Трасе";
                 CalculateB.Text = "Изчисли";
                 SaveResultsB.Text = "Запази Резултат";
                 ChangeValuesB.Text = "Промени Коефициенти";
                 ChooseWorkerLabel.Text = "Моля изберете спасител";
-                label1.Text = "Спасител";
-                label2.Text = "Спасители:";
-                label3.Text = "Сегмент";
-                label4.Text = "Сегменти";
-                label5.Text = "Изчисли Ресурси за Мисия";
+                WorkerLabel.Text = "Спасител";
+                WorkersLabel.Text = "Спасители:";
+                SegmentLabel.Text = "Сегмент";
+                PathLabel.Text = "Сегменти";
+                TitleLabel.Text = "Изчисли Ресурси за Мисия";
             }
             else
             {
@@ -85,31 +80,26 @@ namespace OxygenCalculator
                 OxygenForExitB.Text = "Oxygen for exit:";
                 OxygenOnExitB.Text = "Oxygen on exit:";
                 RemainingTimeB.Text = "Remaining time for work:";
-                AlternativePathsB.Text = "Alternative Paths";
                 CreateWorkerB.Text = "Create Worker";
                 ChooseWorkerB.Text = "Choose Worker";
-                UpdateWorkerB.Text = "Update Worker";
                 DeleteWorkerB.Text = "Delete Worker";
                 CreateApparatusB.Text = "Create Apparatus";
-                UpdateApparatusB.Text = "Update Apparatus";
                 DeleteApparatusB.Text = "Delete Apparatus";
                 CreateSegmentB.Text = "Create Segment";
-                UpdateSegmentB.Text = "Update Segment";
                 DeleteSegmentB.Text = "Delete Segment";
                 AddLuggageB.Text = "Add Luggage";
                 RemoveLuggageB.Text = "Remove Luggage";
                 AddBreakB.Text = "Add Break";
                 DeleteBreakB.Text = "Delete Break";
-                ChoosePathB.Text = "Choose Path";
                 CalculateB.Text = "Calculate";
                 SaveResultsB.Text = "Save Result";
                 ChangeValuesB.Text = "Change Constants";
                 ChooseWorkerLabel.Text = "Please choose a worker";
-                label1.Text = "Rescue Worker";
-                label2.Text = "Workers:";
-                label3.Text = "Segment";
-                label4.Text = "Segments:";
-                label5.Text = "Calculate Needed Resources for Mission";
+                WorkerLabel.Text = "Rescue Worker";
+                WorkersLabel.Text = "Workers:";
+                SegmentLabel.Text = "Segment";
+                PathLabel.Text = "Segments:";
+                TitleLabel.Text = "Calculate Needed Resources for Mission";
             }
         }
 
@@ -147,21 +137,6 @@ namespace OxygenCalculator
             
         }
 
-        private void UpdateWorkerB_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ChooseWorkerLabel.Hide();
-                WorkerForm workerForm = new WorkerForm(this, worker);
-                workerForm.Show();
-            }
-            catch (Exception ex)
-            {
-                ChooseWorkerLabel.Show();
-                Console.WriteLine(ex.Message);
-                WorkerListBox.Items.Add(ex.Message + " At update");
-            }
-        }
 
         private void DeleteWorkerB_Click(object sender, EventArgs e)
         {
@@ -190,11 +165,6 @@ namespace OxygenCalculator
             apparatusForm.Show();
         }
 
-        private void UpdateApparatusB_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DeleteApparatusB_Click(object sender, EventArgs e)
         {
 
@@ -206,10 +176,6 @@ namespace OxygenCalculator
             segmentForm.Show();
         }
 
-        private void UpdateSegmentB_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void DeleteSegmentB_Click(object sender, EventArgs e)
         {
@@ -380,7 +346,7 @@ namespace OxygenCalculator
                 MySqlDataReader myReader = commandDatabaseSegment.ExecuteReader();
                 while (myReader.Read())
                 {
-                    segments.Add(new Segment(myReader.GetInt16(0), myReader.GetString(1),myReader.GetInt16(2), myReader.GetFloat(3), myReader.GetFloat(4), myReader.GetFloat(5), myReader.GetFloat(6), myReader.GetFloat(7), myReader.GetInt16(8), myReader.GetInt16(9), myReader.GetInt16(10)));
+                    segments.Add(new Segment(myReader.GetInt16(0), myReader.GetString(1),myReader.GetInt16(2), myReader.GetFloat(3), myReader.GetFloat(4), myReader.GetFloat(5), myReader.GetFloat(6), myReader.GetFloat(7), myReader.GetInt16(8), myReader.GetInt16(9)));
                     SegmentListBox.Items.Add(myReader.GetInt16(0) + " - " + myReader.GetString(1));
                 }
                 databaseConnection.Close();

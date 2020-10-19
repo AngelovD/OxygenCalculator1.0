@@ -34,7 +34,7 @@ namespace OxygenCalculator
             if (checkSegment() != null)
             {
                 Segment segment = checkSegment();
-                string queryText = "INSERT INTO `segments`( `Name`, `Lenght`, `EntrySpeed`, `ExitSpeed`, `EntryOxygen`, `ExitOxygen`, `Height`, `StartPoint`, `WetFloor`, `Obstacles`) VALUES ('" +
+                string queryText = "INSERT INTO `segments`( `Name`, `Lenght`, `EntrySpeed`, `ExitSpeed`, `EntryOxygen`, `ExitOxygen`, `Height`, `WetFloor`, `Obstacles`) VALUES ('" +
                     segment.getName()+"'," +
                     segment.getLenght() + "," +
                     segment.getEntrySpeed() + "," +
@@ -42,7 +42,6 @@ namespace OxygenCalculator
                     segment.getEntryOxygen() + "," +
                     segment.getExitOxygen() + "," +
                     segment.getHeight() + "," +
-                    segment.getStartPoint() + ","+
                     segment.getWetFloor() + "," +
                     segment.getObstacles() +");";
                 MySqlCommand commandDatabase = new MySqlCommand(queryText, databaseConnection);
@@ -59,7 +58,6 @@ namespace OxygenCalculator
                     EntryOxygenBox.Text = "";
                     ExitOxygenBox.Text = "";
                     HeightBox.Text = "";
-                    StartBox.Text = "";
                     ObstaclesBox.Text = "";
                 }
                 catch(Exception ex)
@@ -92,7 +90,6 @@ namespace OxygenCalculator
             double entryOxygen;
             double exitOxygen;
             double height;
-            int startPoint;
             int wetFloor;
             int Obstacles;
 
@@ -109,7 +106,6 @@ namespace OxygenCalculator
                 exitSpeed = Convert.ToDouble(ExitBox.Text);
                 entryOxygen = Convert.ToDouble(EntryOxygenBox.Text);
                 exitOxygen = Convert.ToDouble(ExitOxygenBox.Text);
-                startPoint = Convert.ToInt32(StartBox.Text);
                 Obstacles = Convert.ToInt32(ObstaclesBox.Text);
                 if (FloorB.Checked)
                 {
@@ -119,7 +115,7 @@ namespace OxygenCalculator
                 {
                     wetFloor = 0;
                 }
-                segment = new Segment(name, lenght, entrySpeed, exitSpeed,entryOxygen, exitOxygen, height, startPoint, wetFloor, Obstacles);
+                segment = new Segment(name, lenght, entrySpeed, exitSpeed,entryOxygen, exitOxygen, height, wetFloor, Obstacles);
             }catch(Exception e)
             {
                 NameBox.Text = e.Message;

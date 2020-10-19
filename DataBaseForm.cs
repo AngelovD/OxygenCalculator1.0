@@ -28,6 +28,7 @@ namespace OxygenCalculator
             DatabaseNotFoundLabel.Text = "Не е намерена База данни";
             LinkLabel.Text = "Ако нямате база моя изтеглете и инсталирайте XAMPP от дадения линк:";
             linkLabel1.Text = "Изтегли XAMPP";
+            RunLabel.Text = "След като инсталирате XAMPP моля вкючете XAMPP control panel и изберете Start бутоните до Apache и MySQL";
         }
 
         private void FillLanguagesEN()
@@ -35,6 +36,7 @@ namespace OxygenCalculator
             DatabaseNotFoundLabel.Text = "Database not found";
             LinkLabel.Text = "If you don't have a database please download it here:";
             linkLabel1.Text = "Download XAMPP";
+            RunLabel.Text = "After installing XAMPP please run the XAMPP control panel and choose the Start buttons next to Apache and MySQL";
         }
 
             private void DataBaseForm_Load(object sender, EventArgs e)

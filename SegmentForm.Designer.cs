@@ -33,24 +33,25 @@
             this.EntryBox = new System.Windows.Forms.TextBox();
             this.ExitBox = new System.Windows.Forms.TextBox();
             this.HeightBox = new System.Windows.Forms.TextBox();
-            this.StartBox = new System.Windows.Forms.TextBox();
             this.ObstaclesBox = new System.Windows.Forms.TextBox();
             this.SaveB = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.LenghtLabel = new System.Windows.Forms.Label();
+            this.EntrySpeedLabel = new System.Windows.Forms.Label();
+            this.ExitSpeedLabel = new System.Windows.Forms.Label();
             this.FloorB = new System.Windows.Forms.RadioButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.HeightLabel = new System.Windows.Forms.Label();
+            this.ObstaclesLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.EntryConsumeLabel = new System.Windows.Forms.Label();
             this.EntryOxygenBox = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.ExitConsumeLabel = new System.Windows.Forms.Label();
             this.ExitOxygenBox = new System.Windows.Forms.TextBox();
+            this.TempLabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NameBox
@@ -80,7 +81,7 @@
             // 
             // ExitBox
             // 
-            this.ExitBox.Location = new System.Drawing.Point(1001, 162);
+            this.ExitBox.Location = new System.Drawing.Point(1028, 159);
             this.ExitBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ExitBox.Name = "ExitBox";
             this.ExitBox.Size = new System.Drawing.Size(289, 26);
@@ -88,19 +89,11 @@
             // 
             // HeightBox
             // 
-            this.HeightBox.Location = new System.Drawing.Point(1001, 44);
+            this.HeightBox.Location = new System.Drawing.Point(1028, 44);
             this.HeightBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.HeightBox.Name = "HeightBox";
             this.HeightBox.Size = new System.Drawing.Size(289, 26);
             this.HeightBox.TabIndex = 5;
-            // 
-            // StartBox
-            // 
-            this.StartBox.Location = new System.Drawing.Point(1001, 105);
-            this.StartBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.StartBox.Name = "StartBox";
-            this.StartBox.Size = new System.Drawing.Size(289, 26);
-            this.StartBox.TabIndex = 6;
             // 
             // ObstaclesBox
             // 
@@ -112,7 +105,7 @@
             // 
             // SaveB
             // 
-            this.SaveB.Location = new System.Drawing.Point(533, 381);
+            this.SaveB.Location = new System.Drawing.Point(651, 379);
             this.SaveB.Name = "SaveB";
             this.SaveB.Size = new System.Drawing.Size(90, 31);
             this.SaveB.TabIndex = 15;
@@ -120,51 +113,51 @@
             this.SaveB.UseVisualStyleBackColor = true;
             this.SaveB.Click += new System.EventHandler(this.SaveB_Click);
             // 
-            // label1
+            // NameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 41);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 20);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Име";
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Location = new System.Drawing.Point(13, 41);
+            this.NameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(40, 20);
+            this.NameLabel.TabIndex = 16;
+            this.NameLabel.Text = "Име";
             // 
-            // label2
+            // LenghtLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 102);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 20);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Дължина";
+            this.LenghtLabel.AutoSize = true;
+            this.LenghtLabel.Location = new System.Drawing.Point(13, 102);
+            this.LenghtLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LenghtLabel.Name = "LenghtLabel";
+            this.LenghtLabel.Size = new System.Drawing.Size(80, 20);
+            this.LenghtLabel.TabIndex = 17;
+            this.LenghtLabel.Text = "Дължина";
             // 
-            // label3
+            // EntrySpeedLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 159);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(290, 20);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Коефициент на скорост при влизане";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.EntrySpeedLabel.AutoSize = true;
+            this.EntrySpeedLabel.Location = new System.Drawing.Point(13, 159);
+            this.EntrySpeedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EntrySpeedLabel.Name = "EntrySpeedLabel";
+            this.EntrySpeedLabel.Size = new System.Drawing.Size(290, 20);
+            this.EntrySpeedLabel.TabIndex = 18;
+            this.EntrySpeedLabel.Text = "Коефициент на скорост при влизане";
+            this.EntrySpeedLabel.Click += new System.EventHandler(this.label3_Click);
             // 
-            // label4
+            // ExitSpeedLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(663, 162);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(298, 20);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Коефициент на скорост при излизане";
+            this.ExitSpeedLabel.AutoSize = true;
+            this.ExitSpeedLabel.Location = new System.Drawing.Point(690, 159);
+            this.ExitSpeedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ExitSpeedLabel.Name = "ExitSpeedLabel";
+            this.ExitSpeedLabel.Size = new System.Drawing.Size(298, 20);
+            this.ExitSpeedLabel.TabIndex = 19;
+            this.ExitSpeedLabel.Text = "Коефициент на скорост при излизане";
             // 
             // FloorB
             // 
             this.FloorB.AutoSize = true;
-            this.FloorB.Location = new System.Drawing.Point(1001, 270);
+            this.FloorB.Location = new System.Drawing.Point(1028, 270);
             this.FloorB.Name = "FloorB";
             this.FloorB.Size = new System.Drawing.Size(113, 24);
             this.FloorB.TabIndex = 20;
@@ -172,35 +165,25 @@
             this.FloorB.Text = "Мокър Под";
             this.FloorB.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // HeightLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(810, 44);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 20);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Височина";
+            this.HeightLabel.AutoSize = true;
+            this.HeightLabel.Location = new System.Drawing.Point(837, 44);
+            this.HeightLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.HeightLabel.Name = "HeightLabel";
+            this.HeightLabel.Size = new System.Drawing.Size(82, 20);
+            this.HeightLabel.TabIndex = 21;
+            this.HeightLabel.Text = "Височина";
             // 
-            // label6
+            // ObstaclesLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(810, 105);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(124, 20);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Начална точка";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 269);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(112, 20);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "Препядстивя";
+            this.ObstaclesLabel.AutoSize = true;
+            this.ObstaclesLabel.Location = new System.Drawing.Point(13, 269);
+            this.ObstaclesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ObstaclesLabel.Name = "ObstaclesLabel";
+            this.ObstaclesLabel.Size = new System.Drawing.Size(112, 20);
+            this.ObstaclesLabel.TabIndex = 23;
+            this.ObstaclesLabel.Text = "Препядстивя";
             // 
             // label8
             // 
@@ -215,7 +198,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1298, 47);
+            this.label9.Location = new System.Drawing.Point(1325, 47);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(22, 20);
@@ -232,15 +215,15 @@
             this.label10.TabIndex = 26;
             this.label10.Text = "min";
             // 
-            // label11
+            // EntryConsumeLabel
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(13, 223);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(318, 20);
-            this.label11.TabIndex = 28;
-            this.label11.Text = "Коефициент на консумация при влизане";
+            this.EntryConsumeLabel.AutoSize = true;
+            this.EntryConsumeLabel.Location = new System.Drawing.Point(13, 223);
+            this.EntryConsumeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EntryConsumeLabel.Name = "EntryConsumeLabel";
+            this.EntryConsumeLabel.Size = new System.Drawing.Size(318, 20);
+            this.EntryConsumeLabel.TabIndex = 28;
+            this.EntryConsumeLabel.Text = "Коефициент на консумация при влизане";
             // 
             // EntryOxygenBox
             // 
@@ -250,48 +233,77 @@
             this.EntryOxygenBox.Size = new System.Drawing.Size(289, 26);
             this.EntryOxygenBox.TabIndex = 27;
             // 
-            // label12
+            // ExitConsumeLabel
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(663, 223);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(326, 20);
-            this.label12.TabIndex = 30;
-            this.label12.Text = "Коефициент на консумация при излизане";
+            this.ExitConsumeLabel.AutoSize = true;
+            this.ExitConsumeLabel.Location = new System.Drawing.Point(690, 220);
+            this.ExitConsumeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ExitConsumeLabel.Name = "ExitConsumeLabel";
+            this.ExitConsumeLabel.Size = new System.Drawing.Size(326, 20);
+            this.ExitConsumeLabel.TabIndex = 30;
+            this.ExitConsumeLabel.Text = "Коефициент на консумация при излизане";
             // 
             // ExitOxygenBox
             // 
-            this.ExitOxygenBox.Location = new System.Drawing.Point(1001, 220);
+            this.ExitOxygenBox.Location = new System.Drawing.Point(1028, 217);
             this.ExitOxygenBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ExitOxygenBox.Name = "ExitOxygenBox";
             this.ExitOxygenBox.Size = new System.Drawing.Size(289, 26);
             this.ExitOxygenBox.TabIndex = 29;
+            // 
+            // TempLabel
+            // 
+            this.TempLabel.AutoSize = true;
+            this.TempLabel.Location = new System.Drawing.Point(837, 102);
+            this.TempLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.TempLabel.Name = "TempLabel";
+            this.TempLabel.Size = new System.Drawing.Size(112, 20);
+            this.TempLabel.TabIndex = 32;
+            this.TempLabel.Text = "Температура ";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1028, 99);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(289, 26);
+            this.textBox1.TabIndex = 31;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1325, 102);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(25, 20);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "°C";
             // 
             // SegmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1325, 445);
-            this.Controls.Add(this.label12);
+            this.ClientSize = new System.Drawing.Size(1398, 445);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.TempLabel);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ExitConsumeLabel);
             this.Controls.Add(this.ExitOxygenBox);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.EntryConsumeLabel);
             this.Controls.Add(this.EntryOxygenBox);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.ObstaclesLabel);
+            this.Controls.Add(this.HeightLabel);
             this.Controls.Add(this.FloorB);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ExitSpeedLabel);
+            this.Controls.Add(this.EntrySpeedLabel);
+            this.Controls.Add(this.LenghtLabel);
+            this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.SaveB);
             this.Controls.Add(this.ObstaclesBox);
-            this.Controls.Add(this.StartBox);
             this.Controls.Add(this.HeightBox);
             this.Controls.Add(this.ExitBox);
             this.Controls.Add(this.EntryBox);
@@ -300,7 +312,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SegmentForm";
-            this.Text = "SegmentForm";
+            this.Text = "`";
             this.Load += new System.EventHandler(this.SegmentForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -314,23 +326,24 @@
         private System.Windows.Forms.TextBox EntryBox;
         private System.Windows.Forms.TextBox ExitBox;
         private System.Windows.Forms.TextBox HeightBox;
-        private System.Windows.Forms.TextBox StartBox;
         private System.Windows.Forms.TextBox ObstaclesBox;
         private System.Windows.Forms.Button SaveB;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label NameLabel;
+        private System.Windows.Forms.Label LenghtLabel;
+        private System.Windows.Forms.Label EntrySpeedLabel;
+        private System.Windows.Forms.Label ExitSpeedLabel;
         private System.Windows.Forms.RadioButton FloorB;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label HeightLabel;
+        private System.Windows.Forms.Label ObstaclesLabel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label EntryConsumeLabel;
         private System.Windows.Forms.TextBox EntryOxygenBox;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label ExitConsumeLabel;
         private System.Windows.Forms.TextBox ExitOxygenBox;
+        private System.Windows.Forms.Label TempLabel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label14;
     }
 }

@@ -32,6 +32,7 @@
             this.DatabaseNotFoundLabel = new System.Windows.Forms.Label();
             this.LinkLabel = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.RunLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LanguageB
@@ -75,12 +76,23 @@
             this.linkLabel1.Text = "linkLabel1";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
             // 
+            // RunLabel
+            // 
+            this.RunLabel.AutoSize = true;
+            this.RunLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RunLabel.Location = new System.Drawing.Point(171, 263);
+            this.RunLabel.Name = "RunLabel";
+            this.RunLabel.Size = new System.Drawing.Size(51, 20);
+            this.RunLabel.TabIndex = 4;
+            this.RunLabel.Text = "label1";
+            // 
             // DataBaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1179, 570);
+            this.ClientSize = new System.Drawing.Size(1179, 320);
+            this.Controls.Add(this.RunLabel);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.LinkLabel);
             this.Controls.Add(this.DatabaseNotFoundLabel);
@@ -103,5 +115,6 @@
         private System.Windows.Forms.Label DatabaseNotFoundLabel;
         private System.Windows.Forms.Label LinkLabel;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label RunLabel;
     }
 }

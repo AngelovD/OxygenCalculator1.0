@@ -16,12 +16,11 @@ namespace OxygenCalculator
         private double entryOxygen;
         private double exitOxygen;
         private double height;
-        private int startPoint;
         private int wetFloor;
         private int obstacles;
 
 
-        public Segment(int id, string name, int lenght, double entrySpeed, double exitSpeed, double entryOxygen, double exitOxygen, double height, int startPoint, int wetFloor, int obstacles)
+        public Segment(int id, string name, int lenght, double entrySpeed, double exitSpeed, double entryOxygen, double exitOxygen, double height, int wetFloor, int obstacles)
         {
             this.id = id;
             this.lenght = lenght;
@@ -31,11 +30,10 @@ namespace OxygenCalculator
             this.entryOxygen = entryOxygen;
             this.exitOxygen = exitOxygen;
             this.height = height;
-            this.startPoint = startPoint;
             this.wetFloor = wetFloor;
             this.obstacles = obstacles;
         }
-        public Segment(string name, int lenght, double entrySpeed, double exitSpeed, double entryOxygen, double exitOxygen, double height, int startPoint, int wetFloor, int obstacles)
+        public Segment(string name, int lenght, double entrySpeed, double exitSpeed, double entryOxygen, double exitOxygen, double height, int wetFloor, int obstacles)
         {
             this.lenght = lenght;
             this.name = name;
@@ -44,7 +42,6 @@ namespace OxygenCalculator
             this.entryOxygen = entryOxygen;
             this.exitOxygen = exitOxygen;
             this.height = height;
-            this.startPoint = startPoint;
             this.wetFloor = wetFloor;
             this.obstacles = obstacles;
         }
@@ -88,10 +85,6 @@ namespace OxygenCalculator
             return this.height;
         }
 
-        public int getStartPoint()
-        {
-            return this.startPoint;
-        }
 
         public int getWetFloor()
         {

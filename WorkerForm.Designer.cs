@@ -43,7 +43,6 @@
             this.ApparatusBox = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.SaveB = new System.Windows.Forms.Button();
-            this.UpdateWorkerB = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -187,16 +186,6 @@
             this.SaveB.UseVisualStyleBackColor = true;
             this.SaveB.Click += new System.EventHandler(this.SaveB_Click);
             // 
-            // UpdateWorkerB
-            // 
-            this.UpdateWorkerB.Location = new System.Drawing.Point(859, 522);
-            this.UpdateWorkerB.Name = "UpdateWorkerB";
-            this.UpdateWorkerB.Size = new System.Drawing.Size(90, 31);
-            this.UpdateWorkerB.TabIndex = 15;
-            this.UpdateWorkerB.Text = "Обнови";
-            this.UpdateWorkerB.UseVisualStyleBackColor = true;
-            this.UpdateWorkerB.Click += new System.EventHandler(this.UpdateWorkerB_Click);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -247,7 +236,6 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.UpdateWorkerB);
             this.Controls.Add(this.SaveB);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.ApparatusBox);
@@ -289,7 +277,6 @@
         private System.Windows.Forms.ListBox ApparatusBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button SaveB;
-        private System.Windows.Forms.Button UpdateWorkerB;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;

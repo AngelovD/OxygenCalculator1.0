@@ -28,23 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.WorkerLabel = new System.Windows.Forms.Label();
+            this.WorkersLabel = new System.Windows.Forms.Label();
+            this.SegmentLabel = new System.Windows.Forms.Label();
+            this.PathLabel = new System.Windows.Forms.Label();
             this.CreateWorkerB = new System.Windows.Forms.Button();
             this.ChooseWorkerB = new System.Windows.Forms.Button();
-            this.UpdateWorkerB = new System.Windows.Forms.Button();
             this.DeleteWorkerB = new System.Windows.Forms.Button();
             this.CreateApparatusB = new System.Windows.Forms.Button();
-            this.UpdateApparatusB = new System.Windows.Forms.Button();
             this.DeleteApparatusB = new System.Windows.Forms.Button();
             this.DeleteBreakB = new System.Windows.Forms.Button();
             this.AddBreakB = new System.Windows.Forms.Button();
             this.RemoveLuggageB = new System.Windows.Forms.Button();
             this.AddLuggageB = new System.Windows.Forms.Button();
             this.DeleteSegmentB = new System.Windows.Forms.Button();
-            this.UpdateSegmentB = new System.Windows.Forms.Button();
             this.CreateSegmentB = new System.Windows.Forms.Button();
             this.WorkerListBox = new System.Windows.Forms.ListBox();
             this.SegmentListBox = new System.Windows.Forms.ListBox();
@@ -53,7 +50,6 @@
             this.OxygenForEntryB = new System.Windows.Forms.Button();
             this.OxygenOnExitB = new System.Windows.Forms.Button();
             this.OxygenOnEntryB = new System.Windows.Forms.Button();
-            this.AlternativePathsB = new System.Windows.Forms.Button();
             this.RemainingTimeB = new System.Windows.Forms.Button();
             this.TimeForPathB = new System.Windows.Forms.Button();
             this.TimeForExitB = new System.Windows.Forms.Button();
@@ -61,54 +57,53 @@
             this.PathLengthB = new System.Windows.Forms.Button();
             this.SaveResultsB = new System.Windows.Forms.Button();
             this.ChangeValuesB = new System.Windows.Forms.Button();
-            this.ChoosePathB = new System.Windows.Forms.Button();
             this.ChooseWorkerLabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.TitleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // WorkerLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(68, 123);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Спасител";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.WorkerLabel.AutoSize = true;
+            this.WorkerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WorkerLabel.Location = new System.Drawing.Point(68, 123);
+            this.WorkerLabel.Name = "WorkerLabel";
+            this.WorkerLabel.Size = new System.Drawing.Size(91, 20);
+            this.WorkerLabel.TabIndex = 0;
+            this.WorkerLabel.Text = "Спасител";
+            this.WorkerLabel.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // WorkersLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(358, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Спасители:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.WorkersLabel.AutoSize = true;
+            this.WorkersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WorkersLabel.Location = new System.Drawing.Point(358, 123);
+            this.WorkersLabel.Name = "WorkersLabel";
+            this.WorkersLabel.Size = new System.Drawing.Size(106, 20);
+            this.WorkersLabel.TabIndex = 1;
+            this.WorkersLabel.Text = "Спасители:";
+            this.WorkersLabel.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label3
+            // SegmentLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(694, 123);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Сегмент";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.SegmentLabel.AutoSize = true;
+            this.SegmentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SegmentLabel.Location = new System.Drawing.Point(694, 123);
+            this.SegmentLabel.Name = "SegmentLabel";
+            this.SegmentLabel.Size = new System.Drawing.Size(81, 20);
+            this.SegmentLabel.TabIndex = 2;
+            this.SegmentLabel.Text = "Сегмент";
+            this.SegmentLabel.Click += new System.EventHandler(this.label3_Click);
             // 
-            // label4
+            // PathLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(983, 123);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Сегменти:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.PathLabel.AutoSize = true;
+            this.PathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PathLabel.Location = new System.Drawing.Point(983, 123);
+            this.PathLabel.Name = "PathLabel";
+            this.PathLabel.Size = new System.Drawing.Size(96, 20);
+            this.PathLabel.TabIndex = 3;
+            this.PathLabel.Text = "Сегменти:";
+            this.PathLabel.Click += new System.EventHandler(this.label4_Click);
             // 
             // CreateWorkerB
             // 
@@ -130,19 +125,9 @@
             this.ChooseWorkerB.UseVisualStyleBackColor = true;
             this.ChooseWorkerB.Click += new System.EventHandler(this.ChooseWorkerB_Click);
             // 
-            // UpdateWorkerB
-            // 
-            this.UpdateWorkerB.Location = new System.Drawing.Point(31, 278);
-            this.UpdateWorkerB.Name = "UpdateWorkerB";
-            this.UpdateWorkerB.Size = new System.Drawing.Size(171, 28);
-            this.UpdateWorkerB.TabIndex = 6;
-            this.UpdateWorkerB.Text = "Обнови Спасител";
-            this.UpdateWorkerB.UseVisualStyleBackColor = true;
-            this.UpdateWorkerB.Click += new System.EventHandler(this.UpdateWorkerB_Click);
-            // 
             // DeleteWorkerB
             // 
-            this.DeleteWorkerB.Location = new System.Drawing.Point(31, 334);
+            this.DeleteWorkerB.Location = new System.Drawing.Point(31, 278);
             this.DeleteWorkerB.Name = "DeleteWorkerB";
             this.DeleteWorkerB.Size = new System.Drawing.Size(171, 28);
             this.DeleteWorkerB.TabIndex = 7;
@@ -152,7 +137,7 @@
             // 
             // CreateApparatusB
             // 
-            this.CreateApparatusB.Location = new System.Drawing.Point(31, 394);
+            this.CreateApparatusB.Location = new System.Drawing.Point(31, 338);
             this.CreateApparatusB.Name = "CreateApparatusB";
             this.CreateApparatusB.Size = new System.Drawing.Size(171, 28);
             this.CreateApparatusB.TabIndex = 8;
@@ -160,19 +145,9 @@
             this.CreateApparatusB.UseVisualStyleBackColor = true;
             this.CreateApparatusB.Click += new System.EventHandler(this.CreateApparatusB_Click);
             // 
-            // UpdateApparatusB
-            // 
-            this.UpdateApparatusB.Location = new System.Drawing.Point(31, 455);
-            this.UpdateApparatusB.Name = "UpdateApparatusB";
-            this.UpdateApparatusB.Size = new System.Drawing.Size(171, 28);
-            this.UpdateApparatusB.TabIndex = 9;
-            this.UpdateApparatusB.Text = "Обнови Апарат";
-            this.UpdateApparatusB.UseVisualStyleBackColor = true;
-            this.UpdateApparatusB.Click += new System.EventHandler(this.UpdateApparatusB_Click);
-            // 
             // DeleteApparatusB
             // 
-            this.DeleteApparatusB.Location = new System.Drawing.Point(31, 520);
+            this.DeleteApparatusB.Location = new System.Drawing.Point(31, 398);
             this.DeleteApparatusB.Name = "DeleteApparatusB";
             this.DeleteApparatusB.Size = new System.Drawing.Size(171, 28);
             this.DeleteApparatusB.TabIndex = 10;
@@ -182,7 +157,7 @@
             // 
             // DeleteBreakB
             // 
-            this.DeleteBreakB.Location = new System.Drawing.Point(647, 520);
+            this.DeleteBreakB.Location = new System.Drawing.Point(647, 463);
             this.DeleteBreakB.Name = "DeleteBreakB";
             this.DeleteBreakB.Size = new System.Drawing.Size(168, 28);
             this.DeleteBreakB.TabIndex = 17;
@@ -192,7 +167,7 @@
             // 
             // AddBreakB
             // 
-            this.AddBreakB.Location = new System.Drawing.Point(647, 455);
+            this.AddBreakB.Location = new System.Drawing.Point(647, 398);
             this.AddBreakB.Name = "AddBreakB";
             this.AddBreakB.Size = new System.Drawing.Size(168, 28);
             this.AddBreakB.TabIndex = 16;
@@ -202,7 +177,7 @@
             // 
             // RemoveLuggageB
             // 
-            this.RemoveLuggageB.Location = new System.Drawing.Point(647, 394);
+            this.RemoveLuggageB.Location = new System.Drawing.Point(647, 337);
             this.RemoveLuggageB.Name = "RemoveLuggageB";
             this.RemoveLuggageB.Size = new System.Drawing.Size(168, 28);
             this.RemoveLuggageB.TabIndex = 15;
@@ -212,7 +187,7 @@
             // 
             // AddLuggageB
             // 
-            this.AddLuggageB.Location = new System.Drawing.Point(647, 334);
+            this.AddLuggageB.Location = new System.Drawing.Point(647, 277);
             this.AddLuggageB.Name = "AddLuggageB";
             this.AddLuggageB.Size = new System.Drawing.Size(168, 28);
             this.AddLuggageB.TabIndex = 14;
@@ -222,23 +197,13 @@
             // 
             // DeleteSegmentB
             // 
-            this.DeleteSegmentB.Location = new System.Drawing.Point(647, 278);
+            this.DeleteSegmentB.Location = new System.Drawing.Point(647, 221);
             this.DeleteSegmentB.Name = "DeleteSegmentB";
             this.DeleteSegmentB.Size = new System.Drawing.Size(168, 28);
             this.DeleteSegmentB.TabIndex = 13;
             this.DeleteSegmentB.Text = "Изтрий Участък";
             this.DeleteSegmentB.UseVisualStyleBackColor = true;
             this.DeleteSegmentB.Click += new System.EventHandler(this.DeleteSegmentB_Click);
-            // 
-            // UpdateSegmentB
-            // 
-            this.UpdateSegmentB.Location = new System.Drawing.Point(647, 221);
-            this.UpdateSegmentB.Name = "UpdateSegmentB";
-            this.UpdateSegmentB.Size = new System.Drawing.Size(168, 28);
-            this.UpdateSegmentB.TabIndex = 12;
-            this.UpdateSegmentB.Text = "Обнови Участък";
-            this.UpdateSegmentB.UseVisualStyleBackColor = true;
-            this.UpdateSegmentB.Click += new System.EventHandler(this.UpdateSegmentB_Click);
             // 
             // CreateSegmentB
             // 
@@ -272,7 +237,7 @@
             // 
             // CalculateB
             // 
-            this.CalculateB.Location = new System.Drawing.Point(633, 609);
+            this.CalculateB.Location = new System.Drawing.Point(562, 609);
             this.CalculateB.Name = "CalculateB";
             this.CalculateB.Size = new System.Drawing.Size(142, 28);
             this.CalculateB.TabIndex = 20;
@@ -282,7 +247,7 @@
             // 
             // OxygenForExitB
             // 
-            this.OxygenForExitB.Location = new System.Drawing.Point(50, 928);
+            this.OxygenForExitB.Location = new System.Drawing.Point(89, 863);
             this.OxygenForExitB.Name = "OxygenForExitB";
             this.OxygenForExitB.Size = new System.Drawing.Size(364, 28);
             this.OxygenForExitB.TabIndex = 25;
@@ -292,7 +257,7 @@
             // 
             // OxygenForEntryB
             // 
-            this.OxygenForEntryB.Location = new System.Drawing.Point(50, 863);
+            this.OxygenForEntryB.Location = new System.Drawing.Point(89, 802);
             this.OxygenForEntryB.Name = "OxygenForEntryB";
             this.OxygenForEntryB.Size = new System.Drawing.Size(364, 28);
             this.OxygenForEntryB.TabIndex = 24;
@@ -302,7 +267,7 @@
             // 
             // OxygenOnExitB
             // 
-            this.OxygenOnExitB.Location = new System.Drawing.Point(50, 802);
+            this.OxygenOnExitB.Location = new System.Drawing.Point(89, 742);
             this.OxygenOnExitB.Name = "OxygenOnExitB";
             this.OxygenOnExitB.Size = new System.Drawing.Size(364, 28);
             this.OxygenOnExitB.TabIndex = 23;
@@ -312,7 +277,7 @@
             // 
             // OxygenOnEntryB
             // 
-            this.OxygenOnEntryB.Location = new System.Drawing.Point(50, 742);
+            this.OxygenOnEntryB.Location = new System.Drawing.Point(89, 686);
             this.OxygenOnEntryB.Name = "OxygenOnEntryB";
             this.OxygenOnEntryB.Size = new System.Drawing.Size(364, 28);
             this.OxygenOnEntryB.TabIndex = 22;
@@ -320,21 +285,11 @@
             this.OxygenOnEntryB.UseVisualStyleBackColor = true;
             this.OxygenOnEntryB.Click += new System.EventHandler(this.OxygenOnEntryB_Click);
             // 
-            // AlternativePathsB
-            // 
-            this.AlternativePathsB.Location = new System.Drawing.Point(50, 686);
-            this.AlternativePathsB.Name = "AlternativePathsB";
-            this.AlternativePathsB.Size = new System.Drawing.Size(364, 28);
-            this.AlternativePathsB.TabIndex = 21;
-            this.AlternativePathsB.Text = "Алтернативни трасета";
-            this.AlternativePathsB.UseVisualStyleBackColor = true;
-            this.AlternativePathsB.Click += new System.EventHandler(this.AlternativePathsB_Click);
-            // 
             // RemainingTimeB
             // 
-            this.RemainingTimeB.Location = new System.Drawing.Point(534, 928);
+            this.RemainingTimeB.Location = new System.Drawing.Point(89, 919);
             this.RemainingTimeB.Name = "RemainingTimeB";
-            this.RemainingTimeB.Size = new System.Drawing.Size(396, 28);
+            this.RemainingTimeB.Size = new System.Drawing.Size(364, 28);
             this.RemainingTimeB.TabIndex = 30;
             this.RemainingTimeB.Text = "Оставащо време при умерена работа:";
             this.RemainingTimeB.UseVisualStyleBackColor = true;
@@ -382,9 +337,9 @@
             // 
             // SaveResultsB
             // 
-            this.SaveResultsB.Location = new System.Drawing.Point(1019, 715);
+            this.SaveResultsB.Location = new System.Drawing.Point(534, 919);
             this.SaveResultsB.Name = "SaveResultsB";
-            this.SaveResultsB.Size = new System.Drawing.Size(159, 28);
+            this.SaveResultsB.Size = new System.Drawing.Size(396, 28);
             this.SaveResultsB.TabIndex = 31;
             this.SaveResultsB.Text = "Запази Резултат";
             this.SaveResultsB.UseVisualStyleBackColor = true;
@@ -392,23 +347,13 @@
             // 
             // ChangeValuesB
             // 
-            this.ChangeValuesB.Location = new System.Drawing.Point(1019, 802);
+            this.ChangeValuesB.Location = new System.Drawing.Point(1019, 894);
             this.ChangeValuesB.Name = "ChangeValuesB";
             this.ChangeValuesB.Size = new System.Drawing.Size(159, 53);
             this.ChangeValuesB.TabIndex = 32;
             this.ChangeValuesB.Text = "Промени коефициенти";
             this.ChangeValuesB.UseVisualStyleBackColor = true;
             this.ChangeValuesB.Click += new System.EventHandler(this.ChangeValuesB_Click);
-            // 
-            // ChoosePathB
-            // 
-            this.ChoosePathB.Location = new System.Drawing.Point(272, 609);
-            this.ChoosePathB.Name = "ChoosePathB";
-            this.ChoosePathB.Size = new System.Drawing.Size(142, 28);
-            this.ChoosePathB.TabIndex = 33;
-            this.ChoosePathB.Text = "Избери трасе";
-            this.ChoosePathB.UseVisualStyleBackColor = true;
-            this.ChoosePathB.Click += new System.EventHandler(this.ChoosePathB_Click);
             // 
             // ChooseWorkerLabel
             // 
@@ -421,15 +366,16 @@
             this.ChooseWorkerLabel.Text = "Моля изберете спасител";
             this.ChooseWorkerLabel.Click += new System.EventHandler(this.ChooseWorkerLabel_Click);
             // 
-            // label5
+            // TitleLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(473, 42);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(313, 26);
-            this.label5.TabIndex = 35;
-            this.label5.Text = "Изчисли Ресурси за Мисия";
+            this.TitleLabel.AutoSize = true;
+            this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.TitleLabel.Location = new System.Drawing.Point(462, 41);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(313, 26);
+            this.TitleLabel.TabIndex = 35;
+            this.TitleLabel.Text = "Изчисли Ресурси за Мисия";
+            this.TitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -438,9 +384,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1212, 980);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.ChooseWorkerLabel);
-            this.Controls.Add(this.ChoosePathB);
             this.Controls.Add(this.ChangeValuesB);
             this.Controls.Add(this.SaveResultsB);
             this.Controls.Add(this.RemainingTimeB);
@@ -452,7 +397,6 @@
             this.Controls.Add(this.OxygenForEntryB);
             this.Controls.Add(this.OxygenOnExitB);
             this.Controls.Add(this.OxygenOnEntryB);
-            this.Controls.Add(this.AlternativePathsB);
             this.Controls.Add(this.CalculateB);
             this.Controls.Add(this.SegmentListBox);
             this.Controls.Add(this.WorkerListBox);
@@ -461,19 +405,16 @@
             this.Controls.Add(this.RemoveLuggageB);
             this.Controls.Add(this.AddLuggageB);
             this.Controls.Add(this.DeleteSegmentB);
-            this.Controls.Add(this.UpdateSegmentB);
             this.Controls.Add(this.CreateSegmentB);
             this.Controls.Add(this.DeleteApparatusB);
-            this.Controls.Add(this.UpdateApparatusB);
             this.Controls.Add(this.CreateApparatusB);
             this.Controls.Add(this.DeleteWorkerB);
-            this.Controls.Add(this.UpdateWorkerB);
             this.Controls.Add(this.ChooseWorkerB);
             this.Controls.Add(this.CreateWorkerB);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.PathLabel);
+            this.Controls.Add(this.SegmentLabel);
+            this.Controls.Add(this.WorkersLabel);
+            this.Controls.Add(this.WorkerLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -489,23 +430,20 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label WorkerLabel;
+        private System.Windows.Forms.Label WorkersLabel;
+        private System.Windows.Forms.Label SegmentLabel;
+        private System.Windows.Forms.Label PathLabel;
         private System.Windows.Forms.Button CreateWorkerB;
         private System.Windows.Forms.Button ChooseWorkerB;
-        private System.Windows.Forms.Button UpdateWorkerB;
         private System.Windows.Forms.Button DeleteWorkerB;
         private System.Windows.Forms.Button CreateApparatusB;
-        private System.Windows.Forms.Button UpdateApparatusB;
         private System.Windows.Forms.Button DeleteApparatusB;
         private System.Windows.Forms.Button DeleteBreakB;
         private System.Windows.Forms.Button AddBreakB;
         private System.Windows.Forms.Button RemoveLuggageB;
         private System.Windows.Forms.Button AddLuggageB;
         private System.Windows.Forms.Button DeleteSegmentB;
-        private System.Windows.Forms.Button UpdateSegmentB;
         private System.Windows.Forms.Button CreateSegmentB;
         private System.Windows.Forms.ListBox WorkerListBox;
         private System.Windows.Forms.ListBox SegmentListBox;
@@ -514,7 +452,6 @@
         private System.Windows.Forms.Button OxygenForEntryB;
         private System.Windows.Forms.Button OxygenOnExitB;
         private System.Windows.Forms.Button OxygenOnEntryB;
-        private System.Windows.Forms.Button AlternativePathsB;
         private System.Windows.Forms.Button RemainingTimeB;
         private System.Windows.Forms.Button TimeForPathB;
         private System.Windows.Forms.Button TimeForExitB;
@@ -522,9 +459,8 @@
         private System.Windows.Forms.Button PathLengthB;
         private System.Windows.Forms.Button SaveResultsB;
         private System.Windows.Forms.Button ChangeValuesB;
-        private System.Windows.Forms.Button ChoosePathB;
         private System.Windows.Forms.Label ChooseWorkerLabel;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label TitleLabel;
     }
 }
 
