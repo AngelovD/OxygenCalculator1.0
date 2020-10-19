@@ -18,22 +18,35 @@ namespace OxygenCalculator
 
         bool language;
 
-        List<Worker> workers;
+        Dictionary<int, Worker> workers;
         List<Segment> segments;
         Dictionary<int,Apparatus> apparatuses;
         
         Worker worker;
+        double TireAmmount;
         public Form1(bool language)
         {
             InitializeComponent();
             ChooseWorkerLabel.Hide();
-            workers = new List<Worker>();
+            workers = new Dictionary<int, Worker>();
             segments = new List<Segment>();
             apparatuses = new Dictionary<int, Apparatus>();
             FillLists();
             this.language = language;
             FillLanguage();
         }
+
+        public void fillSegments(List<Segment> segments)
+        {
+            FillLists();
+            SegmentListBox.Items.Clear();
+            this.segments = segments;
+            for(int i = 0; i < segments.Count; i++)
+            {
+                SegmentListBox.Items.Add(segments[i].getID() + " - " + segments[i].getName());
+            }
+        }
+
 
         private void FillLanguage()
         {
@@ -107,7 +120,7 @@ namespace OxygenCalculator
         private void CreateWorkerB_Click(object sender, EventArgs e)
         {
 
-            WorkerForm workerForm = new WorkerForm(this);
+            WorkerForm workerForm = new WorkerForm(this,language);
             workerForm.Show();
 
         }
@@ -120,15 +133,7 @@ namespace OxygenCalculator
                 string[] chosenWorkerID = WorkerListBox.SelectedItem.ToString().Split(' ');
                 int id;
                 id = Convert.ToInt32(chosenWorkerID[0]);
-                for (int i = 0; i < workers.Count; i++)
-                {
-                    if (workers[i].getID() == id)
-                    {
-                        worker = workers[i];
-                        break;
-
-                    }
-                }
+                this.worker = workers[id];
             }
             catch(Exception ex){
                 WorkerListBox.Items.Add(ex.Message +" at Choose");
@@ -161,18 +166,19 @@ namespace OxygenCalculator
 
         private void CreateApparatusB_Click(object sender, EventArgs e)
         {
-            ApparatusForm apparatusForm = new ApparatusForm();
+            ApparatusForm apparatusForm = new ApparatusForm(language);
             apparatusForm.Show();
         }
 
         private void DeleteApparatusB_Click(object sender, EventArgs e)
         {
-
+            DeleteApparatus deleteApparatus = new DeleteApparatus(language);
+            deleteApparatus.Show();
         }
 
         private void CreateSegmentB_Click(object sender, EventArgs e)
         {
-            SegmentForm segmentForm = new SegmentForm(this);
+            SegmentForm segmentForm = new SegmentForm(this,language);
             segmentForm.Show();
         }
 
@@ -201,33 +207,231 @@ namespace OxygenCalculator
 
         private void AddLuggageB_Click(object sender, EventArgs e)
         {
-
+            LuggageForm luggageForm = new LuggageForm(this, segments, language);
+            luggageForm.Show();
         }
 
         private void RemoveLuggageB_Click(object sender, EventArgs e)
         {
+            LuggageForm luggageForm = new LuggageForm(this, segments, language);
+            luggageForm.Show();
 
         }
 
         private void AddBreakB_Click(object sender, EventArgs e)
         {
-
+            RestForm restForm = new RestForm(this, segments, language);
+            restForm.Show();
         }
 
         private void DeleteBreakB_Click(object sender, EventArgs e)
         {
-
+            RestForm restForm = new RestForm(this, segments, language);
+            restForm.Show();
         }
 
-        private void ChoosePathB_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void CalculateB_Click(object sender, EventArgs e)
         {
             FillLanguage();
-           
+            TireAmmount = 1;
+            List<double> entry = Entry();
+            List<double> exit = Exit();
+            try {
+            ChooseWorkerLabel.Hide();
+            double oxygenTank = apparatuses[worker.getApparatus()].getPressure() * apparatuses[worker.getApparatus()].getVolume()*10;
+            double trackOxygen = entry[1] + exit[1];
+            double lenght = entry[0] + exit[0];
+            double time = entry[2] + exit[2];
+            if (oxygenTank > trackOxygen)
+            {
+                PathLengthB.Text += " " + Math.Round(lenght, 2, MidpointRounding.ToEven) + " m";
+                TimeForPathB.Text += " " + Math.Round(time, 2, MidpointRounding.ToEven) + " min";
+                OxygenOnEntryB.Text += " " + Math.Round(oxygenTank, 2, MidpointRounding.ToEven) + " l";
+                OxygenOnExitB.Text += " " + Math.Round(oxygenTank-trackOxygen, 2, MidpointRounding.ToEven) + " l";
+                OxygenForEntryB.Text += " " + Math.Round(entry[1], 2, MidpointRounding.ToEven) + " l";
+                TimeForEntryB.Text += " " + Math.Round(entry[2], 2, MidpointRounding.ToEven) + " min";
+                OxygenForExitB.Text += " " + Math.Round(exit[1], 2, MidpointRounding.ToEven) + " l";
+                TimeForExitB.Text += " " + Math.Round(exit[2], 2, MidpointRounding.ToEven) + " min";
+                double remainingTime = (oxygenTank - trackOxygen) / worker.getOxygenConsumption();
+                RemainingTimeB.Text += " " + Math.Round(remainingTime, 2, MidpointRounding.ToEven) + " min";
+            }
+            else if(language)
+            {
+                ChooseWorkerLabel.Text = "Не достатъчен кислород";
+            }else if (!language)
+            {
+                ChooseWorkerLabel.Text = "Not enough Oxygen";
+            }
+            }
+            catch (Exception ex)
+            {
+                ChooseWorkerLabel.Show();
+                if (language)
+                {
+                    ChooseWorkerLabel.Text = "Моля изберете спасител";
+
+                }
+                else
+                {
+                    ChooseWorkerLabel.Text = "Please choose a worker";
+                }
+            }
+
+        }
+
+        private List<double> Entry()
+        {
+            List<double> res = new List<double>();
+            int lenght = 0;
+            int sLenght;
+            double oxygen = 0;
+            double oxygenConsumption;
+            double time = 0;
+            double speed;
+            try
+            {
+                for (int i = 0; i < segments.Count; i++)
+                {
+                    lenght += segments[i].getLenght();
+                    sLenght = segments[i].getLenght();
+                    speed = worker.getSpeed() * ((worker.getWeight() - apparatuses[worker.getApparatus()].getWeight()) / worker.getWeight());
+                    speed *= segments[i].getEntrySpeed();
+                    speed *= TireAmmount;
+                    oxygenConsumption = worker.getOxygenConsumption() * segments[i].getEntryOxygen();
+                    if (segments[i].getHeight() < worker.getHeight())
+                    {
+                        speed *= 0.8;
+                    }
+
+                    if (segments[i].getLuggage() > 0)
+                    {
+                        speed = speed * ((worker.getWeight() - segments[i].getLuggage()) / worker.getWeight());
+                    }
+
+                    if (segments[i].getObstacles() > 0)
+                    {
+                        time += segments[i].getObstacles();
+                        oxygen += segments[i].getObstacles() * worker.getOxygenConsumption();
+                        TireAmmount += segments[i].getObstacles() * 0.02;
+                    }
+
+                    int rest = sLenght % 100;
+
+                    for (int j = 0; j < sLenght / 100; j++)
+                    {
+                        if (TireAmmount > 0.4)
+                        {
+                            oxygen += ((100 / speed) * oxygenConsumption) / TireAmmount;
+                            time += 100 / speed;
+                            TireAmmount -= worker.getTireRate();
+                        }
+                        else
+                        {
+                            time += 20;
+                            TireAmmount += 0.4;
+                            oxygen += ((100 / speed) * oxygenConsumption) / TireAmmount;
+                            time += 100 / speed;
+                            TireAmmount -= worker.getTireRate();
+                        }
+                    }
+                    oxygen += ((rest / speed) * oxygenConsumption) / TireAmmount;
+                    time += rest / speed;
+                }
+                res.Add(lenght);
+                res.Add(oxygen);
+                res.Add(time);
+            } catch (Exception e)
+            {
+                ChooseWorkerLabel.Show();
+                if (language) {
+                    ChooseWorkerLabel.Text = "Моля изберете спасител";
+
+                }
+                else
+                {
+                    ChooseWorkerLabel.Text = "Please choose a worker";
+                }
+            }
+
+            return res;
+        }
+        private List<double> Exit()
+        {
+            List<double> res = new List<double>();
+            int lenght = 0;
+            int sLenght;
+            double oxygen = 0;
+            double oxygenConsumption;
+            double time = 0;
+            double speed;
+            try { 
+            for (int i = 0; i < segments.Count; i++)
+            {
+                lenght += segments[i].getLenght();
+                sLenght = segments[i].getLenght();
+                speed = worker.getSpeed() * ((worker.getWeight() - apparatuses[worker.getApparatus()].getWeight()) / worker.getWeight());
+                speed *= segments[i].getExitSpeed();
+                speed *= TireAmmount;
+                oxygenConsumption = worker.getOxygenConsumption() * segments[i].getExitOxygen();
+                if (segments[i].getHeight() < worker.getHeight())
+                {
+                    speed *= 0.8;
+                }
+
+                if (segments[i].getLuggage() > 0)
+                {
+                    speed = speed * ((worker.getWeight() - segments[i].getLuggage()) / worker.getWeight());
+                }
+
+                if (segments[i].getObstacles() > 0)
+                {
+                    time += segments[i].getObstacles();
+                    oxygen += segments[i].getObstacles() * worker.getOxygenConsumption();
+                    TireAmmount += segments[i].getObstacles() * 0.02;
+                }
+
+                int rest = sLenght % 100;
+
+                for (int j = 0; j < sLenght / 100; j++)
+                {
+                    if (TireAmmount > 0.4)
+                    {
+                        oxygen += ((100 / speed) * oxygenConsumption) / TireAmmount;
+                        time += 100 / speed;
+                        TireAmmount -= worker.getTireRate();
+                    }
+                    else
+                    {
+                        time += 20;
+                        TireAmmount += 0.4;
+                        oxygen += ((100 / speed) * oxygenConsumption) / TireAmmount;
+                        time += 100 / speed;
+                        TireAmmount -= worker.getTireRate();
+                    }
+                }
+                oxygen += ((rest / speed) * oxygenConsumption) / TireAmmount;
+                time += rest / speed;
+            }
+            res.Add(lenght);
+            res.Add(oxygen);
+            res.Add(time);
+            }
+            catch (Exception e)
+            {
+                ChooseWorkerLabel.Show();
+                if (language)
+                {
+                    ChooseWorkerLabel.Text = "Моля изберете спасител";
+
+                }
+                else
+                {
+                    ChooseWorkerLabel.Text = "Please choose a worker";
+                }
+            }
+
+            return res;
         }
 
         private void AlternativePathsB_Click(object sender, EventArgs e)
@@ -298,7 +502,7 @@ namespace OxygenCalculator
         public void FillLists()
         {
 
-            workers = new List<Worker>();
+            workers = new Dictionary<int, Worker>();
             segments = new List<Segment>();
             apparatuses = new Dictionary<int, Apparatus>();
 
@@ -327,8 +531,8 @@ namespace OxygenCalculator
                 MySqlDataReader myReader = commandDatabaseWorker.ExecuteReader();
                 while (myReader.Read())
                 {
-                    workers.Add(new Worker(myReader.GetInt16(0),myReader.GetString(1),myReader.GetFloat(2),myReader.GetFloat(3),myReader.GetFloat(4),myReader.GetFloat(5),myReader.GetFloat(6),myReader.GetInt16(7)));
-                    WorkerListBox.Items.Add(myReader.GetInt16(0) + " - " + myReader.GetString(1));
+                    workers.Add(myReader.GetInt16(0),new Worker(myReader.GetInt16(0),myReader.GetString(1),myReader.GetFloat(2),myReader.GetFloat(3),myReader.GetFloat(4),myReader.GetFloat(5),myReader.GetFloat(6),myReader.GetInt16(7)));
+                    WorkerListBox.Items.Add(myReader.GetInt16(0) + " - " + myReader.GetString(1) + " - " + myReader.GetFloat(5) + "m/s");
                 }
                 databaseConnection.Close();
 
@@ -340,23 +544,25 @@ namespace OxygenCalculator
             }
 
             //Segment connection and fill
-            try
+            if (!segments.Any())
             {
-                databaseConnection.Open();
-                MySqlDataReader myReader = commandDatabaseSegment.ExecuteReader();
-                while (myReader.Read())
+                try
                 {
-                    segments.Add(new Segment(myReader.GetInt16(0), myReader.GetString(1),myReader.GetInt16(2), myReader.GetFloat(3), myReader.GetFloat(4), myReader.GetFloat(5), myReader.GetFloat(6), myReader.GetFloat(7), myReader.GetInt16(8), myReader.GetInt16(9)));
-                    SegmentListBox.Items.Add(myReader.GetInt16(0) + " - " + myReader.GetString(1));
+                    databaseConnection.Open();
+                    MySqlDataReader myReader = commandDatabaseSegment.ExecuteReader();
+                    while (myReader.Read())
+                    {
+                        segments.Add(new Segment(myReader.GetInt16(0), myReader.GetString(1), myReader.GetInt16(2), myReader.GetFloat(3), myReader.GetFloat(4), myReader.GetFloat(5), myReader.GetFloat(6), myReader.GetFloat(7), myReader.GetInt16(8), myReader.GetInt16(9), myReader.GetInt16(10)));
+                        SegmentListBox.Items.Add(myReader.GetInt16(0) + " - " + myReader.GetString(1));
+                    }
+                    databaseConnection.Close();
                 }
-                databaseConnection.Close();
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    SegmentListBox.Items.Add("At Select S");
+                }
             }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-                SegmentListBox.Items.Add("At Select S");
-            }
-
             //Apparatus connection and fill
             try
             {

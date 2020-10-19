@@ -50,13 +50,14 @@
             this.ExitConsumeLabel = new System.Windows.Forms.Label();
             this.ExitOxygenBox = new System.Windows.Forms.TextBox();
             this.TempLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TempBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.TitleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NameBox
             // 
-            this.NameBox.Location = new System.Drawing.Point(350, 44);
+            this.NameBox.Location = new System.Drawing.Point(358, 89);
             this.NameBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(289, 26);
@@ -65,7 +66,7 @@
             // 
             // LenghtBox
             // 
-            this.LenghtBox.Location = new System.Drawing.Point(350, 102);
+            this.LenghtBox.Location = new System.Drawing.Point(358, 147);
             this.LenghtBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LenghtBox.Name = "LenghtBox";
             this.LenghtBox.Size = new System.Drawing.Size(289, 26);
@@ -73,7 +74,7 @@
             // 
             // EntryBox
             // 
-            this.EntryBox.Location = new System.Drawing.Point(350, 159);
+            this.EntryBox.Location = new System.Drawing.Point(358, 204);
             this.EntryBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.EntryBox.Name = "EntryBox";
             this.EntryBox.Size = new System.Drawing.Size(289, 26);
@@ -81,7 +82,7 @@
             // 
             // ExitBox
             // 
-            this.ExitBox.Location = new System.Drawing.Point(1028, 159);
+            this.ExitBox.Location = new System.Drawing.Point(1036, 204);
             this.ExitBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ExitBox.Name = "ExitBox";
             this.ExitBox.Size = new System.Drawing.Size(289, 26);
@@ -89,7 +90,7 @@
             // 
             // HeightBox
             // 
-            this.HeightBox.Location = new System.Drawing.Point(1028, 44);
+            this.HeightBox.Location = new System.Drawing.Point(1036, 89);
             this.HeightBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.HeightBox.Name = "HeightBox";
             this.HeightBox.Size = new System.Drawing.Size(289, 26);
@@ -97,7 +98,7 @@
             // 
             // ObstaclesBox
             // 
-            this.ObstaclesBox.Location = new System.Drawing.Point(350, 269);
+            this.ObstaclesBox.Location = new System.Drawing.Point(358, 314);
             this.ObstaclesBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ObstaclesBox.Name = "ObstaclesBox";
             this.ObstaclesBox.Size = new System.Drawing.Size(289, 26);
@@ -116,7 +117,7 @@
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(13, 41);
+            this.NameLabel.Location = new System.Drawing.Point(21, 86);
             this.NameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(40, 20);
@@ -126,7 +127,7 @@
             // LenghtLabel
             // 
             this.LenghtLabel.AutoSize = true;
-            this.LenghtLabel.Location = new System.Drawing.Point(13, 102);
+            this.LenghtLabel.Location = new System.Drawing.Point(21, 147);
             this.LenghtLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LenghtLabel.Name = "LenghtLabel";
             this.LenghtLabel.Size = new System.Drawing.Size(80, 20);
@@ -136,7 +137,7 @@
             // EntrySpeedLabel
             // 
             this.EntrySpeedLabel.AutoSize = true;
-            this.EntrySpeedLabel.Location = new System.Drawing.Point(13, 159);
+            this.EntrySpeedLabel.Location = new System.Drawing.Point(21, 204);
             this.EntrySpeedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EntrySpeedLabel.Name = "EntrySpeedLabel";
             this.EntrySpeedLabel.Size = new System.Drawing.Size(290, 20);
@@ -147,7 +148,7 @@
             // ExitSpeedLabel
             // 
             this.ExitSpeedLabel.AutoSize = true;
-            this.ExitSpeedLabel.Location = new System.Drawing.Point(690, 159);
+            this.ExitSpeedLabel.Location = new System.Drawing.Point(698, 204);
             this.ExitSpeedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ExitSpeedLabel.Name = "ExitSpeedLabel";
             this.ExitSpeedLabel.Size = new System.Drawing.Size(298, 20);
@@ -157,7 +158,7 @@
             // FloorB
             // 
             this.FloorB.AutoSize = true;
-            this.FloorB.Location = new System.Drawing.Point(1028, 270);
+            this.FloorB.Location = new System.Drawing.Point(1036, 315);
             this.FloorB.Name = "FloorB";
             this.FloorB.Size = new System.Drawing.Size(113, 24);
             this.FloorB.TabIndex = 20;
@@ -168,7 +169,7 @@
             // HeightLabel
             // 
             this.HeightLabel.AutoSize = true;
-            this.HeightLabel.Location = new System.Drawing.Point(837, 44);
+            this.HeightLabel.Location = new System.Drawing.Point(845, 89);
             this.HeightLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.HeightLabel.Name = "HeightLabel";
             this.HeightLabel.Size = new System.Drawing.Size(82, 20);
@@ -178,7 +179,7 @@
             // ObstaclesLabel
             // 
             this.ObstaclesLabel.AutoSize = true;
-            this.ObstaclesLabel.Location = new System.Drawing.Point(13, 269);
+            this.ObstaclesLabel.Location = new System.Drawing.Point(21, 314);
             this.ObstaclesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ObstaclesLabel.Name = "ObstaclesLabel";
             this.ObstaclesLabel.Size = new System.Drawing.Size(112, 20);
@@ -188,7 +189,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(647, 105);
+            this.label8.Location = new System.Drawing.Point(655, 150);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(22, 20);
@@ -198,7 +199,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1325, 47);
+            this.label9.Location = new System.Drawing.Point(1333, 92);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(22, 20);
@@ -208,7 +209,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(647, 272);
+            this.label10.Location = new System.Drawing.Point(655, 317);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 20);
@@ -218,7 +219,7 @@
             // EntryConsumeLabel
             // 
             this.EntryConsumeLabel.AutoSize = true;
-            this.EntryConsumeLabel.Location = new System.Drawing.Point(13, 223);
+            this.EntryConsumeLabel.Location = new System.Drawing.Point(21, 268);
             this.EntryConsumeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EntryConsumeLabel.Name = "EntryConsumeLabel";
             this.EntryConsumeLabel.Size = new System.Drawing.Size(318, 20);
@@ -227,7 +228,7 @@
             // 
             // EntryOxygenBox
             // 
-            this.EntryOxygenBox.Location = new System.Drawing.Point(350, 220);
+            this.EntryOxygenBox.Location = new System.Drawing.Point(358, 265);
             this.EntryOxygenBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.EntryOxygenBox.Name = "EntryOxygenBox";
             this.EntryOxygenBox.Size = new System.Drawing.Size(289, 26);
@@ -236,7 +237,7 @@
             // ExitConsumeLabel
             // 
             this.ExitConsumeLabel.AutoSize = true;
-            this.ExitConsumeLabel.Location = new System.Drawing.Point(690, 220);
+            this.ExitConsumeLabel.Location = new System.Drawing.Point(698, 265);
             this.ExitConsumeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ExitConsumeLabel.Name = "ExitConsumeLabel";
             this.ExitConsumeLabel.Size = new System.Drawing.Size(326, 20);
@@ -245,7 +246,7 @@
             // 
             // ExitOxygenBox
             // 
-            this.ExitOxygenBox.Location = new System.Drawing.Point(1028, 217);
+            this.ExitOxygenBox.Location = new System.Drawing.Point(1036, 262);
             this.ExitOxygenBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ExitOxygenBox.Name = "ExitOxygenBox";
             this.ExitOxygenBox.Size = new System.Drawing.Size(289, 26);
@@ -254,30 +255,41 @@
             // TempLabel
             // 
             this.TempLabel.AutoSize = true;
-            this.TempLabel.Location = new System.Drawing.Point(837, 102);
+            this.TempLabel.Location = new System.Drawing.Point(845, 147);
             this.TempLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TempLabel.Name = "TempLabel";
             this.TempLabel.Size = new System.Drawing.Size(112, 20);
             this.TempLabel.TabIndex = 32;
             this.TempLabel.Text = "Температура ";
             // 
-            // textBox1
+            // TempBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(1028, 99);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(289, 26);
-            this.textBox1.TabIndex = 31;
+            this.TempBox.Location = new System.Drawing.Point(1036, 144);
+            this.TempBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TempBox.Name = "TempBox";
+            this.TempBox.Size = new System.Drawing.Size(289, 26);
+            this.TempBox.TabIndex = 31;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(1325, 102);
+            this.label14.Location = new System.Drawing.Point(1333, 147);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(25, 20);
             this.label14.TabIndex = 33;
             this.label14.Text = "°C";
+            // 
+            // TitleLabel
+            // 
+            this.TitleLabel.AutoSize = true;
+            this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.TitleLabel.Location = new System.Drawing.Point(560, 27);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(313, 26);
+            this.TitleLabel.TabIndex = 36;
+            this.TitleLabel.Text = "Изчисли Ресурси за Мисия";
+            this.TitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SegmentForm
             // 
@@ -285,9 +297,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1398, 445);
+            this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.TempLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TempBox);
             this.Controls.Add(this.ExitConsumeLabel);
             this.Controls.Add(this.ExitOxygenBox);
             this.Controls.Add(this.EntryConsumeLabel);
@@ -312,7 +325,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SegmentForm";
-            this.Text = "`";
+            this.Text = "SegmentForm";
             this.Load += new System.EventHandler(this.SegmentForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -343,7 +356,8 @@
         private System.Windows.Forms.Label ExitConsumeLabel;
         private System.Windows.Forms.TextBox ExitOxygenBox;
         private System.Windows.Forms.Label TempLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TempBox;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label TitleLabel;
     }
 }

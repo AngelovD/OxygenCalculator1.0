@@ -17,7 +17,8 @@ namespace OxygenCalculator
         static string MySqlConnectionText = "datasource=127.0.0.1;port=3306;username=root;password=;database=OxygenCalculatorDB";
         static MySqlConnection databaseConnection = new MySqlConnection(MySqlConnectionText);
         List<Apparatus> apparatuses;
-        Worker worker = null;
+
+        bool language;
 
         public WorkerForm()
         {
@@ -27,28 +28,45 @@ namespace OxygenCalculator
 
         }
 
-        public WorkerForm(Form callingForm)
+        public WorkerForm(Form callingForm, bool language)
         {
             mainForm = callingForm as Form1;
             InitializeComponent();
             apparatuses = new List<Apparatus>();
             fillList();
+            this.language = language;
+            fillLanguage();
         }
 
-        public WorkerForm(Form callingForm, Worker worker)
+        private void fillLanguage()
         {
-            mainForm = callingForm as Form1;
-            InitializeComponent();
-            apparatuses = new List<Apparatus>();
-            fillList();
-            this.worker = worker;
-            NameBox.Text = worker.getName();
-            HeightBox.Text = Math.Round(worker.getHeight(), 3, MidpointRounding.AwayFromZero).ToString();
-            WeightBox.Text = Math.Round(worker.getWeight(), 3, MidpointRounding.AwayFromZero).ToString();
-            OxygenBox.Text = Math.Round(worker.getOxygenConsumption(), 3, MidpointRounding.AwayFromZero).ToString();
-            SpeedBox.Text = Math.Round(worker.getSpeed(), 3, MidpointRounding.AwayFromZero).ToString();
-            TireBox.Text = Math.Round(worker.getTireRate(), 3, MidpointRounding.AwayFromZero).ToString();
+            if (language)
+            {
+                TitleLabel.Text = "Създай спасител";
+                label1.Text = "Име";
+                label2.Text = "Ръст";
+                label3.Text = "Тегло";
+                label4.Text = "Консумация на кислород";
+                label5.Text = "Скорост";
+                label6.Text = "Умора за 100 метра";
+                label7.Text = "Изберете апарат";
+                SaveB.Text = "Запази";
+
+            }
+            else
+            {
+                TitleLabel.Text = "Create worker";
+                label1.Text = "Name";
+                label2.Text = "Height";
+                label3.Text = "Weight";
+                label4.Text = "Oxygen consumption";
+                label5.Text = "Speed";
+                label6.Text = "Tire rate for 100m";
+                label7.Text = "Choose apparatus";
+                SaveB.Text = "Save";
+            }
         }
+
 
         private void SaveB_Click(object sender, EventArgs e)
         {
@@ -115,7 +133,14 @@ namespace OxygenCalculator
                 tireRate = Convert.ToDouble(TireBox.Text);
                 if (!apparatuses.Any())
                 {
-                    ApparatusBox.Items.Add("Моля създайте апарат");
+                    if (language)
+                    {
+                        ApparatusBox.Items.Add("Моля създайте апарат");
+                    }
+                    else
+                    {
+                        ApparatusBox.Items.Add("Please create an apparatus");
+                    }
                 }
                 else
                 {
@@ -171,6 +196,11 @@ namespace OxygenCalculator
             {
                 ApparatusBox.Items.Add("Моля създайте апарат");
             }
+        }
+
+        private void NameBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

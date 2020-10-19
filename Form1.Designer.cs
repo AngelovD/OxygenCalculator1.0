@@ -247,9 +247,9 @@
             // 
             // OxygenForExitB
             // 
-            this.OxygenForExitB.Location = new System.Drawing.Point(89, 863);
+            this.OxygenForExitB.Location = new System.Drawing.Point(57, 863);
             this.OxygenForExitB.Name = "OxygenForExitB";
-            this.OxygenForExitB.Size = new System.Drawing.Size(364, 28);
+            this.OxygenForExitB.Size = new System.Drawing.Size(396, 28);
             this.OxygenForExitB.TabIndex = 25;
             this.OxygenForExitB.Text = "Кислород за излизане:";
             this.OxygenForExitB.UseVisualStyleBackColor = true;
@@ -257,9 +257,9 @@
             // 
             // OxygenForEntryB
             // 
-            this.OxygenForEntryB.Location = new System.Drawing.Point(89, 802);
+            this.OxygenForEntryB.Location = new System.Drawing.Point(57, 802);
             this.OxygenForEntryB.Name = "OxygenForEntryB";
-            this.OxygenForEntryB.Size = new System.Drawing.Size(364, 28);
+            this.OxygenForEntryB.Size = new System.Drawing.Size(396, 28);
             this.OxygenForEntryB.TabIndex = 24;
             this.OxygenForEntryB.Text = "Кислород за влизане:";
             this.OxygenForEntryB.UseVisualStyleBackColor = true;
@@ -267,9 +267,9 @@
             // 
             // OxygenOnExitB
             // 
-            this.OxygenOnExitB.Location = new System.Drawing.Point(89, 742);
+            this.OxygenOnExitB.Location = new System.Drawing.Point(57, 742);
             this.OxygenOnExitB.Name = "OxygenOnExitB";
-            this.OxygenOnExitB.Size = new System.Drawing.Size(364, 28);
+            this.OxygenOnExitB.Size = new System.Drawing.Size(396, 28);
             this.OxygenOnExitB.TabIndex = 23;
             this.OxygenOnExitB.Text = "Наличен кислород при излизане:";
             this.OxygenOnExitB.UseVisualStyleBackColor = true;
@@ -277,9 +277,9 @@
             // 
             // OxygenOnEntryB
             // 
-            this.OxygenOnEntryB.Location = new System.Drawing.Point(89, 686);
+            this.OxygenOnEntryB.Location = new System.Drawing.Point(57, 686);
             this.OxygenOnEntryB.Name = "OxygenOnEntryB";
-            this.OxygenOnEntryB.Size = new System.Drawing.Size(364, 28);
+            this.OxygenOnEntryB.Size = new System.Drawing.Size(396, 28);
             this.OxygenOnEntryB.TabIndex = 22;
             this.OxygenOnEntryB.Text = "Наличен кислород при влизане:";
             this.OxygenOnEntryB.UseVisualStyleBackColor = true;
@@ -287,9 +287,9 @@
             // 
             // RemainingTimeB
             // 
-            this.RemainingTimeB.Location = new System.Drawing.Point(89, 919);
+            this.RemainingTimeB.Location = new System.Drawing.Point(57, 919);
             this.RemainingTimeB.Name = "RemainingTimeB";
-            this.RemainingTimeB.Size = new System.Drawing.Size(364, 28);
+            this.RemainingTimeB.Size = new System.Drawing.Size(396, 28);
             this.RemainingTimeB.TabIndex = 30;
             this.RemainingTimeB.Text = "Оставащо време при умерена работа:";
             this.RemainingTimeB.UseVisualStyleBackColor = true;

@@ -60,6 +60,12 @@
     <Compile Include="DataBaseForm.Designer.cs">
       <DependentUpon>DataBaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DeleteApparatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteApparatus.Designer.cs">
+      <DependentUpon>DeleteApparatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,8 +78,20 @@
     <Compile Include="LangluageForm.Designer.cs">
       <DependentUpon>LangluageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LuggageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LuggageForm.Designer.cs">
+      <DependentUpon>LuggageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RestForm.Designer.cs">
+      <DependentUpon>RestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Segment.cs" />
     <Compile Include="SegmentForm.cs">
       <SubType>Form</SubType>
@@ -94,11 +112,17 @@
     <EmbeddedResource Include="DataBaseForm.resx">
       <DependentUpon>DataBaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DeleteApparatus.resx">
+      <DependentUpon>DeleteApparatus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LangluageForm.resx">
       <DependentUpon>LangluageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LuggageForm.resx">
+      <DependentUpon>LuggageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -109,6 +133,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RestForm.resx">
+      <DependentUpon>RestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SegmentForm.resx">
       <DependentUpon>SegmentForm.cs</DependentUpon>
     </EmbeddedResource>

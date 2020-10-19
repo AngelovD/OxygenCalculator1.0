@@ -16,9 +16,40 @@ namespace OxygenCalculator
         static string MySqlConnectionText = "datasource=127.0.0.1;port=3306;username=root;password=;database=OxygenCalculatorDB";
         static MySqlConnection databaseConnection = new MySqlConnection(MySqlConnectionText);
 
-        public ApparatusForm()
+        bool language;
+
+        public ApparatusForm(bool language)
         {
             InitializeComponent();
+            this.language = language;
+            fillLanguage();
+        }
+
+        private void fillLanguage()
+        {
+            if (language)
+            {
+                label1.Text = "Име";
+                label2.Text = "Тегло";
+                label3.Text = "Вместимост";
+                label4.Text = "Налягане";
+                label5.Text = "Време за работа";
+                label6.Text = "Запас";
+                label7.Text = "Описание";
+                SaveB.Text = "Запази";
+            }
+            else
+            {
+                label1.Text = "Name";
+                label2.Text = "Weight";
+                label3.Text = "Volume";
+                label4.Text = "Pressure";
+                label5.Text = "Time for work";
+                label6.Text = "Reserve";
+                label7.Text = "Description";
+                SaveB.Text = "Save";
+            }
+
         }
 
         private void SaveB_Click(object sender, EventArgs e)
