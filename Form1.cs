@@ -532,7 +532,7 @@ namespace OxygenCalculator
                 while (myReader.Read())
                 {
                     workers.Add(myReader.GetInt16(0),new Worker(myReader.GetInt16(0),myReader.GetString(1),myReader.GetFloat(2),myReader.GetFloat(3),myReader.GetFloat(4),myReader.GetFloat(5),myReader.GetFloat(6),myReader.GetInt16(7)));
-                    WorkerListBox.Items.Add(myReader.GetInt16(0) + " - " + myReader.GetString(1) + " - " + myReader.GetFloat(5) + "m/s");
+                    WorkerListBox.Items.Add(myReader.GetInt16(0) + " - " + myReader.GetString(1) + " - " + myReader.GetFloat(5) + "m/min");
                 }
                 databaseConnection.Close();
 
